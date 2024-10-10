@@ -1,2 +1,3 @@
 **/benchmark/target/**
 **/Swift/.build/**
+**/SwiftModules/.build/**
