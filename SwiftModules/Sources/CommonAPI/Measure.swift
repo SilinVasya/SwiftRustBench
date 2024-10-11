@@ -1,6 +1,7 @@
 private import Foundation
 
 public let DEFAULT_MEASURE_COUNT = 1_000;
+public let MEDIUM_MEASURE_COUNT = 100_000;
 public let LARGE_MEASURE_COUNT = 1_000_000;
 
 public func measure(name: String, measuresCount: Int = 1_000, algo: () -> Void) {

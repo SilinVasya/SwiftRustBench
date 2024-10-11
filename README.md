@@ -124,3 +124,18 @@ Circular Deque
 | Min | 0.002563 ms  | 0.002447792 ms  |
 | Avg | 0.002670 ms  | 0.0026057405890000003 ms  |
 | Median | 0.002642 ms  | 0.002581292 ms  |
+
+==============================================================
+
+The Number of the Smallest Unoccupied Chair: https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/description/?envType=daily-question&envId=2024-10-11
+
+Attempts count: 100_000
+
+| MacBook Pro M2 Pro 16GB 2023  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Total time      | 155.811447 ms | 142.232588458 ms  |
+| Diff | 0.004819 ms  | 0.008999181999996608 ms  |
+| Max | 0.007618 ms  | 0.006052375 ms  |
+| Min | 0.001463 ms  | 0.001323666 ms  |
+| Avg | 0.001558 ms  | 0.00142223589276 ms  |
+| Median | 0.001538 ms  | 0.001411083 ms  |

@@ -97,6 +97,7 @@ class Solution {
 }
 
 var TEMP_STORAGE = Array<Int>()
+// TEMP_STORAGE.reserveCapacity(LARGE_MEASURE_COUNT)
 
 let sampleURL = Bundle.module.url(forResource: "sample", withExtension: "txt")!
 let numsString = try! String(contentsOf: sampleURL, encoding: .utf8)

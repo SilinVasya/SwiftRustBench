@@ -2,6 +2,7 @@ use std::vec::Vec;
 use std::time::Instant;
 
 pub static DEFAULT_MEASURE_COUNT: i32 = 1_000;
+pub static MEDIUM_MEASURE_COUNT: i32 = 100_000;
 pub static LARGE_MEASURE_COUNT: i32 = 1_000_000;
 
 pub fn measure(name: &str, measure_count: i32, run: impl Fn()) {
