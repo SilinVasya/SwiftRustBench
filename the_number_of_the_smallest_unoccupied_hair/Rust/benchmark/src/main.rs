@@ -65,7 +65,12 @@ struct Solution {
 }
 
 impl Solution {
-    pub fn smallest_chair(times: &Vec<Vec<i32>>, target_friend: &i32) -> i32 {
+
+    fn new() -> Self {
+        Solution {}
+    }
+
+    pub fn smallest_chair(&self, times: &Vec<Vec<i32>>, target_friend: &i32) -> i32 {
         let mut sorted_times = times
             .iter()
             .enumerate()
@@ -113,6 +118,7 @@ impl Solution {
     }
 }
 
+static MEASURE_COUNT: i32 = MEDIUM_MEASURE_COUNT;
 static mut TEMP_STORAGE: Vec<i32> = Vec::new();
 
 #[derive(Serialize, Deserialize)]
@@ -129,21 +135,23 @@ fn read_sample(number: i32) -> Sample {
 }
 
 fn main() {
-    unsafe {
-        TEMP_STORAGE.reserve(3 * MEDIUM_MEASURE_COUNT as usize);
-    }
     let samples = [
         read_sample(1),
         read_sample(2),
         read_sample(3)
     ];
+    unsafe {
+        TEMP_STORAGE.reserve(samples.len() * MEASURE_COUNT as usize);
+    }
 
     measure(
         "The Number of the Smallest Unoccupied Chair: https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/description/?envType=daily-question&envId=2024-10-11",
-        MEDIUM_MEASURE_COUNT,
+        MEASURE_COUNT,
         move || {
+            let solution = Solution::new();
+
             for sample in &samples {
-                let result = Solution::smallest_chair(&sample.times, &sample.target_friend);
+                let result = solution.smallest_chair(&sample.times, &sample.target_friend);
 
                 unsafe {
                     TEMP_STORAGE.push(result);

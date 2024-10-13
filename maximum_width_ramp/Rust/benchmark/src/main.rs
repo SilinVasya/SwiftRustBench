@@ -74,15 +74,19 @@ impl Solution {
     }
 }
 
+static MEASURE_COUNT: i32 = LARGE_MEASURE_COUNT;
 static mut TEMP_STORAGE: Vec<i32> = Vec::new();
 
 fn main() {
+    unsafe {
+        TEMP_STORAGE.reserve(MEASURE_COUNT as usize);
+    }
     let content = std::fs::read_to_string("./src/sample.txt").unwrap();
     let nums = content.split(",").map(|str| { str.parse::<i32>().unwrap() }).collect::<Vec<_>>();
 
     measure(
         "Maximum Width Ramp: https://leetcode.com/problems/maximum-width-ramp/description/?envType=daily-question&envId=2024-10-10",
-        LARGE_MEASURE_COUNT,
+        MEASURE_COUNT,
         || {
             let result1 = Solution::max_width_ramp(&nums);
             unsafe {

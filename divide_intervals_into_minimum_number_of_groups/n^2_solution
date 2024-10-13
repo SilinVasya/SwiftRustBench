@@ -1,0 +1,40 @@
+private struct Interval {
+        let left: Int
+        let right: Int
+        var visited: Bool
+    }
+
+    func minGroups(_ intervals: [[Int]]) -> Int {
+        var sortedIntervals = intervals
+        .map { Interval(left: $0[0], right: $0[1], visited: false) }
+        .sorted { interval1, interval2 in
+            if interval1.left == interval2.left {
+                return interval1.right < interval2.right
+            }
+
+            return interval1.left < interval2.left
+        }
+
+        var counter = 0
+        for i in 0..<sortedIntervals.count {
+            guard !sortedIntervals[i].visited else {
+                continue
+            }
+
+            counter += 1
+            var rightI = sortedIntervals[i].right
+
+            for j in i + 1..<sortedIntervals.count {
+                guard !sortedIntervals[j].visited else {
+                    continue
+                }
+
+                if sortedIntervals[j].left > rightI {
+                    sortedIntervals[j].visited = true
+                    rightI = sortedIntervals[j].right
+                }
+            }
+        }
+
+        return counter
+    }

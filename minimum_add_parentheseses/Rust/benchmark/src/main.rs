@@ -33,12 +33,16 @@ impl Solution {
     }
 }
 
+static MEASURE_COUNT: i32 = LARGE_MEASURE_COUNT;
 static mut TEMP_STORAGE: Vec<i32> = Vec::new();
 
 fn main() {
+    unsafe {
+        TEMP_STORAGE.reserve(MEASURE_COUNT as usize);
+    }
     measure(
         "Minimum Add to Make Parentheses Valid: https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/?envType=daily-question&envId=2024-10-09",
-        LARGE_MEASURE_COUNT,
+        MEASURE_COUNT,
         || {
             let solution = Solution::new();
         

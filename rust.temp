@@ -1,0 +1,51 @@
+/*
+investigate
+use std::{collections::BinaryHeap, cmp::Reverse};
+
+impl Solution {
+    pub fn min_groups(intervals: Vec<Vec<i32>>) -> i32 {
+        let mut end_times = BinaryHeap::<Reverse<i32>>::new();
+        let mut intervals = intervals.into_iter().map(|a| (a[0], a[1])).collect::<Vec<_>>();
+        intervals.sort_unstable();
+        for (start_time, end_time) in intervals {
+            if let Some(Reverse(soonest)) = end_times.peek().copied() {
+                if soonest < start_time {
+                    end_times.pop();
+                }
+            }
+            end_times.push(Reverse(end_time));
+        }
+        end_times.len() as _
+    }
+}
+*/
+
+impl Solution {
+    pub fn min_groups(intervals: Vec<Vec<i32>>) -> i32 {
+        let mut starts: Vec<i32> = Vec::new();
+        starts.reserve(intervals.len());
+
+        let mut ends: Vec<i32> = Vec::new();
+        ends.reserve(intervals.len());
+
+        for interval in intervals {
+            starts.push(interval[0]);
+            ends.push(interval[1]);
+        }
+
+        starts.sort();
+        ends.sort();
+
+        let mut counter = 0;
+        let mut endI = 0;
+        for start in starts {
+            if start > ends[endI] {
+                endI += 1;
+            } else {
+                counter += 1;
+            }
+        }
+
+        counter
+    }
+}

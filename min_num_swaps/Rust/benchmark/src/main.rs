@@ -40,6 +40,7 @@ impl Solution {
     }
 }
 
+static MEASURE_COUNT: i32 = LARGE_MEASURE_COUNT;
 static mut TEMP_STORAGE: Vec<i32> = Vec::new();
 
 fn test_str(solution: &Solution, s: String) {
@@ -50,9 +51,12 @@ fn test_str(solution: &Solution, s: String) {
 }
 
 fn main() {
+    unsafe {
+        TEMP_STORAGE.reserve(MEASURE_COUNT as usize);
+    }
     measure(
         "Minimum Number of Swaps to Make the String Balanced https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/description/?envType=daily-question&envId=2024-10-08",
-        LARGE_MEASURE_COUNT,
+        MEASURE_COUNT,
         || {
             let solution = Solution::new();
         
