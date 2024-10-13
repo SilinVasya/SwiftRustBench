@@ -15,6 +15,12 @@ Short bench description
 | Median | 1.000.000 ms  | 1.000.000 ms  |
 
 Diff is utils time that are not related to actual execution and not included in timing processing.
+There are no autotests for solutions because each solution is tested via leetcode submissions and only then benchmarked.
+
+**Roadmap:**
+1. Change benchmarks format
+2. Automations with Python scripts: gather mesurements, update results pages, auto update README
+3. Add new daily challenge solutions from time to time
 
 ==============================================================
 
