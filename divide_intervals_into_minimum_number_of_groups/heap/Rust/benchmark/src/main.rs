@@ -6,6 +6,8 @@ use common_api::DEFAULT_MEASURE_COUNT;
 use rand::prelude::*;
 use serde::{Deserialize, Serialize};
 use serde_json;
+use std::collections::BinaryHeap;
+use std::cmp::Reverse;
 
 struct Solution {
 }
@@ -16,21 +18,19 @@ impl Solution {
         Solution {}
     }
 
-    fn min_groups(&self, intervals: &Vec<Vec<i32>>) -> i32 {
-        let mut arr: Vec<i32> = vec![0; 1_000_002];
-        for interval in intervals {
-            arr[interval[0] as usize] += 1;
-            arr[(interval[1] + 1) as usize] -= 1;
+    pub fn min_groups(&self, intervals: &Vec<Vec<i32>>) -> i32 {
+        let mut end_times = BinaryHeap::<Reverse<i32>>::new();
+        let mut intervals = intervals.into_iter().map(|a| (a[0], a[1])).collect::<Vec<_>>();
+        intervals.sort_unstable();
+        for (start_time, end_time) in intervals {
+            if let Some(Reverse(soonest)) = end_times.peek().copied() {
+                if soonest < start_time {
+                    end_times.pop();
+                }
+            }
+            end_times.push(Reverse(end_time));
         }
-
-        let mut sum = 0;
-        let mut max_sum = 0;
-        for a in arr {
-            sum += a;
-            max_sum = i32::max(max_sum, sum);
-        }
-
-        max_sum
+        end_times.len() as _
     }
 }
 

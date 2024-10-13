@@ -10,63 +10,11 @@ use serde_json;
 struct Solution {
 }
 
-// Solution 1: no heap
-// impl Solution {
-
-//     fn new() -> Self {
-//         Solution {}
-//     }
-
-//     pub fn min_groups(&self, intervals: &Vec<Vec<i32>>) -> i32 {
-//         let mut starts: Vec<i32> = Vec::new();
-//         starts.reserve(intervals.len());
-
-//         let mut ends: Vec<i32> = Vec::new();
-//         ends.reserve(intervals.len());
-
-//         for interval in intervals {
-//             starts.push(interval[0]);
-//             ends.push(interval[1]);
-//         }
-
-//         starts.sort();
-//         ends.sort();
-
-//         let mut counter = 0;
-//         let mut end_i = 0;
-//         for start in starts {
-//             if start > ends[end_i] {
-//                 end_i += 1;
-//             } else {
-//                 counter += 1;
-//             }
-//         }
-
-//         counter
-//     }
-// }
-
-// Solution 2: With heap
 impl Solution {
 
     fn new() -> Self {
         Solution {}
     }
-
-    /*pub fn min_groups(&self, intervals: &Vec<Vec<i32>>) -> i32 {
-        let mut end_times = BinaryHeap::<Reverse<i32>>::new();
-        let mut intervals = intervals.into_iter().map(|a| (a[0], a[1])).collect::<Vec<_>>();
-        intervals.sort_unstable();
-        for (start_time, end_time) in intervals {
-            if let Some(Reverse(soonest)) = end_times.peek().copied() {
-                if soonest < start_time {
-                    end_times.pop();
-                }
-            }
-            end_times.push(Reverse(end_time));
-        }
-        end_times.len() as _
-    }*/
 
     fn min_groups(&self, intervals: &Vec<Vec<i32>>) -> i32 {
         let mut arr: Vec<i32> = vec![0; 1_000_002];
@@ -85,8 +33,6 @@ impl Solution {
         max_sum
     }
 }
-
-
 
 #[derive(Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]

@@ -1,9 +1,46 @@
 use std::vec::Vec;
 use std::time::Instant;
+use serde::{Deserialize, Serialize};
+use std::io::{self, Write};
+use serde_json;
 
 pub static DEFAULT_MEASURE_COUNT: i32 = 1_000;
 pub static MEDIUM_MEASURE_COUNT: i32 = 100_000;
 pub static LARGE_MEASURE_COUNT: i32 = 1_000_000;
+
+#[derive(Serialize, Deserialize)]
+struct RunResults<'a> {
+    name: &'a str,
+    total_time: f64,
+    diff: f64,
+    max: f64,
+    min: f64,
+    average: f64,
+    median: f64
+}
+
+impl<'a> RunResults<'a> {
+
+    fn new(
+        name: &'a str,
+        total_time: f64,
+        diff: f64,
+        max: f64,
+        min: f64,
+        average: f64,
+        median: f64
+    ) -> Self {
+        RunResults {
+            name,
+            total_time,
+            diff,
+            max,
+            min,
+            average,
+            median
+        }
+    }
+}
 
 pub fn measure(name: &str, measure_count: i32, run: impl Fn()) {
     let mut measures = Vec::new();
@@ -27,15 +64,30 @@ pub fn measure(name: &str, measure_count: i32, run: impl Fn()) {
     println!("Total time: {}", total_time);
 
     let total_measures_time = durations.iter().sum::<u128>() as f64 / to_ms_divider;
-    println!("Diff time: {}", total_time - total_measures_time);
+    let diff = total_time - total_measures_time;
+    println!("Diff time: {}", diff);
 
-    let max = durations.iter().max().unwrap();
-    println!("Max: {}", *max as f64 / to_ms_divider);
-    let min = durations.iter().min().unwrap();
-    println!("Min: {}", *min as f64 / to_ms_divider);
+    let max = *durations.iter().max().unwrap() as f64 / to_ms_divider;
+    println!("Max: {}", max);
 
-    let avg = durations.iter().sum::<u128>() as f64 / measure_count as f64;
-    println!("Avg: {}", avg / to_ms_divider);
+    let min = *durations.iter().min().unwrap() as f64 / to_ms_divider;
+    println!("Min: {}", min);
 
-    println!("Median: {}", durations[measure_count as usize / 2] as f64 / to_ms_divider);
+    let average = (durations.iter().sum::<u128>() as f64 / measure_count as f64) / to_ms_divider;
+    println!("Avg: {}", average);
+
+    let median = durations[measure_count as usize / 2] as f64 / to_ms_divider;
+    println!("Median: {}", median);
+
+    let results = RunResults::new(
+        name,
+        total_time,
+        diff,
+        max,
+        min,
+        average,
+        median
+    );
+    let results_string = serde_json::to_string(&results).expect("Can't parse to JSON");
+    io::stdout().write_all(&results_string.into_bytes()).expect("Can't write to stdout");
 }

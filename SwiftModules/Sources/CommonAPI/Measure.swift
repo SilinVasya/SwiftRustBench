@@ -17,22 +17,46 @@ public func measure(name: String, measuresCount: Int = 1_000, algo: () -> Void) 
         durations.append(end - start)
     }
 
+    let forEnd = vksaCurrentTimeMicroseconds()
+
     durations = durations.sorted()
 
     print("=========================")
-    print("\(name)")
+    print(name)
 
-    let totalTime = Double(vksaCurrentTimeMicroseconds() - forStart) / 1_000_000
-    print("Total time \(toString(double: totalTime))")
+    var results = ["name": name]
+
+    let totalTime = Double(forEnd - forStart) / 1_000_000
+    let totalTimeStr = toString(double: totalTime)
+    print("Total time \(totalTimeStr)")
+    results["total_time"] = totalTimeStr
 
     let totalMeasuresTime = Double(durations.reduce(into: 0) { $0 += $1 }) / 1_000_000
-    print("Diff: \(toString(double: totalTime - totalMeasuresTime))")
+    let diffStr = toString(double: totalTime - totalMeasuresTime)
+    print("Diff: \(diffStr)")
+    results["diff"] = diffStr
 
-    print("Max: \(toString(double: Double((durations.max { $0 < $1 })!) / 1_000_000))")
-    print("Min: \(toString(double: Double((durations.min { $0 < $1 })!) / 1_000_000))")
+    let maxStr = toString(double: Double((durations.max { $0 < $1 })!) / 1_000_000)
+    print("Max: \(maxStr)")
+    results["max"] = maxStr
+
+    let minStr = toString(double: Double((durations.min { $0 < $1 })!) / 1_000_000)
+    print("Min: \(minStr)")
+    results["min"] = minStr
+
     let average = Double(durations.reduce(into: 0, { $0 += $1 })) / Double(durations.count)
-    print("Avg: \(toString(double: average / 1_000_000))")
-    print("Median: \(toString(double: Double(durations[durations.count / 2]) / 1_000_000))")
+    let averageStr = toString(double: average / 1_000_000)
+    print("Avg: \(averageStr)")
+    results["average"] = averageStr
+
+    let medianStr = toString(double: Double(durations[durations.count / 2]) / 1_000_000)
+    print("Median: \(medianStr)")
+    results["median"] = medianStr
+
+    let stdout = FileHandle.standardOutput
+    stdout.write(try! JSONSerialization.data(withJSONObject: results))
+
+    print("")
 }
 
 private func toString(double: Double) -> String {
