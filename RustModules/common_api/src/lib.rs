@@ -11,6 +11,7 @@ pub static LARGE_MEASURE_COUNT: i32 = 1_000_000;
 #[derive(Serialize, Deserialize)]
 struct RunResults<'a> {
     name: &'a str,
+    measures_count: i32,
     total_time: f64,
     diff: f64,
     max: f64,
@@ -23,6 +24,7 @@ impl<'a> RunResults<'a> {
 
     fn new(
         name: &'a str,
+        measures_count: i32,
         total_time: f64,
         diff: f64,
         max: f64,
@@ -32,6 +34,7 @@ impl<'a> RunResults<'a> {
     ) -> Self {
         RunResults {
             name,
+            measures_count,
             total_time,
             diff,
             max,
@@ -42,10 +45,10 @@ impl<'a> RunResults<'a> {
     }
 }
 
-pub fn measure(name: &str, measure_count: i32, run: impl Fn()) {
+pub fn measure(name: &str, measures_count: i32, run: impl Fn()) {
     let mut measures = Vec::new();
     let for_start_time = Instant::now();
-    for _ in 0..measure_count {
+    for _ in 0..measures_count {
         let start_time = Instant::now();
         
         run();
@@ -73,14 +76,15 @@ pub fn measure(name: &str, measure_count: i32, run: impl Fn()) {
     let min = *durations.iter().min().unwrap() as f64 / to_ms_divider;
     println!("Min: {}", min);
 
-    let average = (durations.iter().sum::<u128>() as f64 / measure_count as f64) / to_ms_divider;
+    let average = (durations.iter().sum::<u128>() as f64 / measures_count as f64) / to_ms_divider;
     println!("Avg: {}", average);
 
-    let median = durations[measure_count as usize / 2] as f64 / to_ms_divider;
+    let median = durations[measures_count as usize / 2] as f64 / to_ms_divider;
     println!("Median: {}", median);
 
     let results = RunResults::new(
         name,
+        measures_count,
         total_time,
         diff,
         max,

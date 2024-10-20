@@ -1,0 +1,110 @@
+// https://leetcode.com/problems/separate-black-and-white-balls/?envType=daily-question&envId=2024-10-15
+
+/*
+Investigate
+class Solution {
+    func minimumSteps(_ s: String) -> Int {
+    var fixedIndex = 0
+    var ans = 0
+    var count = 0
+
+    for i in s {
+        if i == "0" {
+            ans += (count - fixedIndex)
+            fixedIndex += 1
+        }
+        count += 1
+    }
+
+    return ans
+    }
+}
+*/
+
+// Swift
+class Solution {
+    func minimumSteps(_ s: String) -> Int {
+        let zeroI = "0".utf8.first!
+
+        var headOne = -1
+        var counter = 0
+        for (index, char) in Array(s.utf8).enumerated() {
+            if char == zeroI {
+                if headOne != -1 {
+                    counter += index - headOne
+                    headOne += 1
+                }
+            } else if headOne == -1 {
+                headOne = index
+            }
+        }
+
+        return counter
+    }
+}
+
+// Rust
+/*
+impl Solution {
+    pub fn minimum_steps(s: String) -> i64 {
+        let mut total_counter: i64 = 0;
+        let mut counter_last_0: i64 = 0;
+        let mut result: i64 = 0;
+        for char_byte in s.into_bytes() {
+            if char_byte == b'0' {
+                result += total_counter - counter_last_0;
+                counter_last_0 += 1;
+            }
+
+            total_counter += 1;
+        }
+
+        result
+    }
+}
+*/
+
+/*
+impl Solution {
+    pub fn minimum_steps(s: String) -> i64 {
+        let mut head_one: i64 = -1;
+        let mut counter: i64 = 0;
+        let mut index: i64 = 0;
+        for char_byte in s.into_bytes() {
+            if char_byte == b'0' {
+                if head_one != -1 {
+                    counter += index - head_one;
+                    head_one += 1;
+                }
+            } else if head_one == -1 {
+                head_one = index;
+            }
+
+            index += 1;
+        }
+
+        counter
+    }
+}
+*/
+
+/*
+impl Solution {
+    pub fn minimum_steps(s: String) -> i64 {
+        let mut head_one: i64 = -1;
+        let mut counter: i64 = 0;
+        for (index, char_byte) in s.into_bytes().into_iter().enumerate() {
+            if char_byte == b'0' {
+                if head_one != -1 {
+                    counter += index as i64 - head_one as i64;
+                    head_one += 1;
+                }
+            } else if head_one == -1 {
+                head_one = index as i64;
+            }
+        }
+
+        counter
+    }
+}
+*/

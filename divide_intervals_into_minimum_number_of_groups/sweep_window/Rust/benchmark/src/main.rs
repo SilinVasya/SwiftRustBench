@@ -40,6 +40,9 @@ struct Sample {
     intervals: Vec<Vec<i32>>
 }
 
+static MEASURE_COUNT: i32 = DEFAULT_MEASURE_COUNT;
+static mut TEMP_STORAGE: Vec<i32> = Vec::new();
+
 fn read_sample() -> Sample {
     let content = std::fs::read_to_string("./src/sample.txt").unwrap();
 
@@ -48,14 +51,14 @@ fn read_sample() -> Sample {
 
 fn main() {
     unsafe {
-        TEMP_STORAGE.reserve(DEFAULT_MEASURE_COUNT as usize);
+        TEMP_STORAGE.reserve(MEASURE_COUNT as usize);
     }
 
     let sample = read_sample();
 
     measure(
         "Divide Intervals Into Minimum Number of Groups (Sweep window): https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/description/?envType=daily-question&envId=2024-10-12",
-        DEFAULT_MEASURE_COUNT,
+        MEASURE_COUNT,
         move || {
             let solution = Solution::new();
             let result = solution.min_groups(&sample.intervals);

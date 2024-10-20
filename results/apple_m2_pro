@@ -1,0 +1,129 @@
+Architecture - bit architecture: 64bit
+Architecture - linkage format used for the executable: 
+Machine type: arm64
+Platform: macOS-14.6.1-arm64-arm-64bit
+Platform aliased: macOS-14.6.1-arm64-arm-64bit
+System: Darwin
+System's release: 23.6.0
+System's version: Darwin Kernel Version 23.6.0: Mon Jul 29 21:13:04 PDT 2024; root:xnu-10063.141.2~1/RELEASE_ARM64_T6020
+Processor: arm
+Processor (cpuinfo brand): Apple M2 Pro
+Processor (cpuinfo full): {'python_version': '3.9.6.final.0 (64 bit)', 'cpuinfo_version': [9, 0, 0], 'cpuinfo_version_string': '9.0.0', 'arch': 'ARM_8', 'bits': 64, 'count': 12, 'arch_string_raw': 'arm64', 'brand_raw': 'Apple M2 Pro'}
+
+==============================================================
+
+Circular Deque
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 2.526993 ms  | 2.6755295 ms  |
+| Diff | 0.000010 ms  | 0.00014794900000003608 ms  |
+| Max | 0.003399 ms  | 0.005737375 ms  |
+| Min | 0.002498 ms  | 0.002488208 ms  |
+| Avg | 0.002527 ms  | 0.002675381551 ms  |
+| Median | 0.002512 ms  | 0.002605542 ms  |
+    
+==============================================================
+
+Binary tree
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 2.705431 ms  | 2.155832166 ms  |
+| Diff | 0.000009 ms  | 0.00016920300000000665 ms  |
+| Max | 0.003289 ms  | 0.004549708 ms  |
+| Min | 0.002528 ms  | 0.002042291 ms  |
+| Avg | 0.002705 ms  | 0.002155662963 ms  |
+| Median | 0.002638 ms  | 0.002113125 ms  |
+    
+==============================================================
+
+Divide Intervals Into Minimum Number of Groups (Sort borders): https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/description/?envType=daily-question&envId=2024-10-12
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 10.640815 ms  | 8.693212834 ms  |
+| Diff | 0.000013 ms  | 9.216200000139452e-05 ms  |
+| Max | 0.011882 ms  | 0.016420333 ms  |
+| Min | 0.010031 ms  | 0.008328666 ms  |
+| Avg | 0.010641 ms  | 0.008693120672 ms  |
+| Median | 0.010453 ms  | 0.008544875 ms  |
+    
+==============================================================
+
+Divide Intervals Into Minimum Number of Groups (Heap solution): https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/description/?envType=daily-question&envId=2024-10-12
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 7.980888 ms  | 3.216299625 ms  |
+| Diff | 0.000016 ms  | 7.692900000000336e-05 ms  |
+| Max | 0.009174 ms  | 0.0039205 ms  |
+| Min | 0.007455 ms  | 0.002952875 ms  |
+| Avg | 0.007981 ms  | 0.003216222696 ms  |
+| Median | 0.007860 ms  | 0.003152292 ms  |
+    
+==============================================================
+
+Divide Intervals Into Minimum Number of Groups (Sweep window): https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/description/?envType=daily-question&envId=2024-10-12
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 1.628989 ms  | 0.953918125 ms  |
+| Diff | 0.000014 ms  | 8.135599999992138e-05 ms  |
+| Max | 0.009260 ms  | 0.001523417 ms  |
+| Min | 0.001404 ms  | 0.000872125 ms  |
+| Avg | 0.001629 ms  | 0.000953836769 ms  |
+| Median | 0.001555 ms  | 0.000914875 ms  |
+    
+==============================================================
+
+The Number of the Smallest Unoccupied Chair: https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/description/?envType=daily-question&envId=2024-10-11
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 100000 | 100000 |
+| Total time      | 154.857300 ms  | 138.994352084 ms  |
+| Diff | 0.001259 ms  | 0.008615091000024222 ms  |
+| Max | 0.029785 ms  | 0.00242575 ms  |
+| Min | 0.001453 ms  | 0.001319958 ms  |
+| Avg | 0.001549 ms  | 0.00138985736993 ms  |
+| Median | 0.001519 ms  | 0.001363458 ms  |
+    
+==============================================================
+
+Minimum Add to Make Parentheses Valid: https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/?envType=daily-question&envId=2024-10-09
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000000 | 1000000 |
+| Total time      | 0.699658 ms  | 1.157330291 ms  |
+| Diff | 0.012581 ms  | 0.07976596400000013 ms  |
+| Max | 0.000545 ms  | 3.7041e-05 ms  |
+| Min | 0.000000 ms  | 9.16e-07 ms  |
+| Avg | 0.000001 ms  | 1.0775643270000002e-06 ms  |
+| Median | 0.000001 ms  | 1.042e-06 ms  |
+    
+==============================================================
+
+Minimum Number of Swaps to Make the String Balanced https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/description/?envType=daily-question&envId=2024-10-08
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000000 | 1000000 |
+| Total time      | 5.237865 ms  | 9.750933084 ms  |
+| Diff | 0.013352 ms  | 0.08665338700000014 ms  |
+| Max | 0.001309 ms  | 0.001752542 ms  |
+| Min | 0.000004 ms  | 9.125e-06 ms  |
+| Avg | 0.000005 ms  | 9.664279697e-06 ms  |
+| Median | 0.000005 ms  | 9.292e-06 ms  |
+    
+==============================================================
+
+Maximum Width Ramp: https://leetcode.com/problems/maximum-width-ramp/description/?envType=daily-question&envId=2024-10-10
+| Field name  | Swift          | RUST         |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000000 | 1000000 |
+| Total time      | 31.206321 ms  | 31.059615417 ms  |
+| Diff | 0.013364 ms  | 0.09156538499999911 ms  |
+| Max | 0.001802 ms  | 0.001062917 ms  |
+| Min | 0.000028 ms  | 2.8666e-05 ms  |
+| Avg | 0.000031 ms  | 3.0968050032e-05 ms  |
+| Median | 0.000030 ms  | 2.9792e-05 ms  |
+    

@@ -24,7 +24,10 @@ public func measure(name: String, measuresCount: Int = 1_000, algo: () -> Void) 
     print("=========================")
     print(name)
 
-    var results = ["name": name]
+    var results: [String: Any] = [
+        "name": name,
+        "measures_count": measuresCount
+    ]
 
     let totalTime = Double(forEnd - forStart) / 1_000_000
     let totalTimeStr = toString(double: totalTime)

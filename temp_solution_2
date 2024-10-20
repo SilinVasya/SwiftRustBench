@@ -1,0 +1,157 @@
+// https://leetcode.com/problems/longest-happy-string/submissions/1424120382/?envType=daily-question&envId=2024-10-16
+
+// Swift
+import Collections
+
+class Solution {
+    private struct Letter: Comparable {
+
+        static func < (lhs: Self, rhs: Self) -> Bool {
+            lhs.totalCount < rhs.totalCount
+        }
+
+        static func <= (lhs: Self, rhs: Self) -> Bool {
+            lhs.totalCount <= rhs.totalCount
+        }
+
+        static func >= (lhs: Self, rhs: Self) -> Bool {
+            lhs.totalCount >= rhs.totalCount
+        }
+
+        static func > (lhs: Self, rhs: Self) -> Bool {
+            lhs.totalCount > rhs.totalCount
+        }
+
+        let char: UInt8
+        var totalCount: Int
+    }
+
+    func longestDiverseString(_ a: Int, _ b: Int, _ c: Int) -> String {
+        var endTimes = Heap<Letter>()
+        for letter in [
+            Letter(char: "a".utf8.first!, totalCount: a),
+            Letter(char: "b".utf8.first!, totalCount: b),
+            Letter(char: "c".utf8.first!, totalCount: c)
+        ] {
+            if letter.totalCount > 0 {
+                endTimes.insert(letter)
+            }
+        }
+
+        var result = [UInt8]()
+        result.reserveCapacity(a + b + c)
+        while !endTimes.isEmpty {
+            var maxLetter = endTimes.popMax()!
+
+            if result.count > 1
+            && result[result.count - 1] == maxLetter.char
+            && result[result.count - 2] == maxLetter.char {
+                if endTimes.isEmpty {
+                    break
+                }
+
+                var secondMax = endTimes.popMax()!
+                result.append(secondMax.char)
+                if secondMax.totalCount > 1 {
+                    secondMax.totalCount -= 1
+                    endTimes.insert(secondMax)
+                }
+
+                endTimes.insert(maxLetter)
+            } else {
+                result.append(maxLetter.char)
+
+                if maxLetter.totalCount > 1 {
+                    maxLetter.totalCount -= 1
+                    endTimes.insert(maxLetter)
+                }
+            }
+        }
+
+        return String(bytes: result, encoding: .utf8)!
+    }
+}
+
+// Rust
+use std::collections::BinaryHeap;
+use std::cmp::Ordering;
+
+#[derive(Eq)]
+struct Letter {
+    total_count: usize,
+    char_i: u8
+}
+
+impl Letter {
+    fn new(total_count: usize, char_i: u8) -> Self {
+        Letter {
+            total_count,
+            char_i
+        }
+    }
+}
+
+impl Ord for Letter {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.total_count.cmp(&other.total_count)
+    }
+}
+
+impl PartialOrd for Letter {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl PartialEq for Letter {
+    fn eq(&self, other: &Self) -> bool {
+        self.total_count == other.total_count && self.char_i == other.char_i
+    }
+}
+
+impl Solution {
+    pub fn longest_diverse_string(a: i32, b: i32, c: i32) -> String {
+        let mut end_times: BinaryHeap<Letter> = BinaryHeap::new();
+
+        for letter in [
+            Letter::new(a as usize, 'a' as u8),
+            Letter::new(b as usize, 'b' as u8),
+            Letter::new(c as usize, 'c' as u8)
+        ] {
+            if letter.total_count > 0 {
+                end_times.push(letter);
+            }
+        }
+
+        let mut result: Vec<u8> = Vec::new();
+        while !end_times.is_empty() {
+            let mut max_letter = end_times.pop().unwrap();
+
+            if result.len() > 1
+            && result[result.len() - 1] == max_letter.char_i
+            && result[result.len() - 2] == max_letter.char_i {
+                if end_times.is_empty() {
+                    break
+                }
+
+                let mut second_max = end_times.pop().unwrap();
+                result.push(second_max.char_i);
+                if second_max.total_count > 1 {
+                    second_max.total_count -= 1;
+                    end_times.push(second_max);
+                }
+
+                end_times.push(max_letter);
+            } else {
+                result.push(max_letter.char_i);
+
+                if max_letter.total_count > 1 {
+                    max_letter.total_count -= 1;
+                    end_times.push(max_letter);
+                }
+            }
+        }
+
+        String::from_utf8(result).expect("Our bytes should be valid utf8")
+    }
+}

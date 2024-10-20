@@ -23,28 +23,6 @@ class Solution {
 
         return maxSum
     }
-
-    /* Without preallocated arr
-    func minGroups(_ intervals: [[Int]]) -> Int {
-        var pairs: [Int: Int] = [:]
-        for interval in intervals {
-            pairs[interval[0], default: 0] += 1
-            pairs[interval[1] + 1, default: 0] -= 1
-        }
-
-        let arr = pairs.sorted { pair1, pair2 in
-            pair1.key < pair2.key
-        }
-
-        var sum = 0
-        var maxSum = 0
-        for a in arr {
-            sum += a.value
-            maxSum = max(maxSum, sum)
-        }
-
-        return maxSum
-    }*/
 }
 
 var TEMP_STORAGE = Array<Int>()
