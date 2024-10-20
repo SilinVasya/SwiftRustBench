@@ -9,7 +9,7 @@ edition = "2021"
 static-rc = "0.6.1"
 rand = "0.8"
 serde_json = "1.0.128"
-serde = { vresion="1.0.210", features=["derive"] }
+serde = { version="1.0.210", features=["derive"] }
 
 [dependencies.common_api]
 path = "../../../RustModules/common_api"
