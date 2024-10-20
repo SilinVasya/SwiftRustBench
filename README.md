@@ -23,4 +23,4 @@ There are no autotests for solutions because each solution is tested via leetcod
 3. Implement memory measurement as well
 
 All results are located under 'results' folder. Links addition will be automated soon.
-Just to be sure - do not run this under sudo!!! If you see can't access folder or file error, grant read and write permissions to anyone only to this benchs folder and inclosing folders and files.
+Just to be sure - do not run this under sudo!!! If you see can't access folder or file error, grant read and write permissions to anyone only to this benchs folder and enclosed folders and files.
