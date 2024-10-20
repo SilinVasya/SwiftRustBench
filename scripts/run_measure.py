@@ -73,7 +73,7 @@ try:
     for swift_result in swift_store:
         all_results[swift_result["name"]]["swift"] = swift_result
 
-    f = open(f"results/{cpuinfo.get_cpu_info()['brand_raw'].lower().replace(' ', '_')}", "w")
+    f = open(f"results/{cpuinfo.get_cpu_info()['brand_raw'].lower().replace(' ', '_')}.md", "w")
     f.write(f"Processor (cpuinfo brand_raw): {cpuinfo.get_cpu_info()['brand_raw']}\n")
     f.write(f"Architecture - bit architecture: {platform.architecture()[0]}\n")
     f.write(f"Architecture - linkage format used for the executable: {platform.architecture()[1]}\n")
@@ -95,7 +95,7 @@ try:
 
     f.close()
 
-    subprocess.call(f"cd {original_folder}")
+    os.chdir(original_folder)
     
 except:
     subprocess.call(f"cd {original_folder}")
