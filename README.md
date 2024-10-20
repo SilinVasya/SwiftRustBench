@@ -1,5 +1,7 @@
 **Swift and Rust benchmarks**
 
+You can find bench's results inside 'results' folder.
+
 Swift and Rust benchmarks based on leetcode daily challenge and from open source benchmarks.
 
 Table with benchs will be added soon in format like:
