@@ -1,8 +1,8 @@
-Processor (cpuinfo brand_raw): Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz
-Architecture - bit architecture: 64bit
-Architecture - linkage format used for the executable: 
-Machine type: x86_64
-Platform: macOS-10.16-x86_64-i386-64bit
+Processor (cpuinfo brand_raw): Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz__
+Architecture - bit architecture: 64bit__
+Architecture - linkage format used for the executable: __
+Machine type: x86_64__
+Platform: macOS-10.16-x86_64-i386-64bit__
 Platform aliased: macOS-10.16-x86_64-i386-64bit
 System: Darwin
 System's release: 24.0.0
