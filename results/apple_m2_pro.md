@@ -1,14 +1,14 @@
-Processor (cpuinfo brand_raw): Apple M2 Pro
-Architecture - bit architecture: 64bit
-Architecture - linkage format used for the executable: 
-Machine type: arm64
-Platform: macOS-14.6.1-arm64-arm-64bit
-Platform aliased: macOS-14.6.1-arm64-arm-64bit
-System: Darwin
-System's release: 23.6.0
-System's version: Darwin Kernel Version 23.6.0: Mon Jul 29 21:13:04 PDT 2024; root:xnu-10063.141.2~1/RELEASE_ARM64_T6020
-Processor: arm
-Processor (cpuinfo full): {'python_version': '3.9.6.final.0 (64 bit)', 'cpuinfo_version': [9, 0, 0], 'cpuinfo_version_string': '9.0.0', 'arch': 'ARM_8', 'bits': 64, 'count': 12, 'arch_string_raw': 'arm64', 'brand_raw': 'Apple M2 Pro'}
+**Processor (cpuinfo brand_raw):** Apple M2 Pro\
+**Architecture - bit architecture:** 64bit\
+**Architecture - linkage format used for the executable:** \
+**Machine type:** arm64\
+**Platform:** macOS-14.6.1-arm64-arm-64bit\
+**Platform aliased:** macOS-14.6.1-arm64-arm-64bit\
+**System:** Darwin\
+**System's release:** 23.6.0\
+**System's version:** Darwin Kernel Version 23.6.0: Mon Jul 29 21:13:04 PDT 2024; root:xnu-10063.141.2~1/RELEASE_ARM64_T6020\
+**Processor:** arm\
+**Processor (cpuinfo full):** {'python_version': '3.9.6.final.0 (64 bit)', 'cpuinfo_version': [9, 0, 0], 'cpuinfo_version_string': '9.0.0', 'arch': 'ARM_8', 'bits': 64, 'count': 12, 'arch_string_raw': 'arm64', 'brand_raw': 'Apple M2 Pro'}
 
 ==============================================================
 
