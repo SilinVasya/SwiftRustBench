@@ -29,3 +29,8 @@ There are no autotests for solutions because each solution is tested via leetcod
 
 All results are located under 'results' folder. Links addition will be automated soon.
 Just to be sure - do not run this under sudo!!! If you see can't access folder or file error, grant read and write permissions to anyone only to this benchs folder and enclosed folders and files.
+
+Results links:
+1. [a relative link](results/apple_m2_pro.md)
+2. [a relative link](results/intel(r)_core(tm)_i5-6600_cpu_@_3.30ghz.md)
+3. [a relative link](results/intel(r)_core(tm)_i5-8500_cpu_@_3.00ghz.md)
