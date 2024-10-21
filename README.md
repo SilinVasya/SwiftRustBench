@@ -7,7 +7,7 @@ Swift and Rust benchmarks based on leetcode daily challenge and from open source
 Table with benchs will be added soon in format like:
 
 Short bench description
-| PC type  | Swift          | RUST         |
+| Field name  | Swift          | RUST         |
 | ------------- | ------------- | ------------- |
 | Total time      | 1.000.000 ms  | 1.000.000 ms  |
 | Diff | 1.000.000 ms  | 1.000.000 ms  |
