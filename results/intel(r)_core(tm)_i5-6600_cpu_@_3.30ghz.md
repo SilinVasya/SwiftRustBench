@@ -1,13 +1,13 @@
-Processor (cpuinfo brand_raw): Intel(R) Core(TM) i5-6600 CPU @ 3.30GHz
-Architecture - bit architecture: 64bit
-Architecture - linkage format used for the executable: ELF
-Machine type: x86_64
-Platform: Linux-5.4.0-150-generic-x86_64-with-Ubuntu-18.04-bionic
-Platform aliased: Linux-5.4.0-150-generic-x86_64-with-Ubuntu-18.04-bionic
-System: Linux
-System's release: 5.4.0-150-generic
-System's version: #167~18.04.1-Ubuntu SMP Wed May 24 00:51:42 UTC 2023
-Processor: x86_64
+Processor (cpuinfo brand_raw): Intel(R) Core(TM) i5-6600 CPU @ 3.30GHz\
+Architecture - bit architecture: 64bit\
+Architecture - linkage format used for the executable: ELF\
+Machine type: x86_64\
+Platform: Linux-5.4.0-150-generic-x86_64-with-Ubuntu-18.04-bionic\
+Platform aliased: Linux-5.4.0-150-generic-x86_64-with-Ubuntu-18.04-bionic\
+System: Linux\
+System's release: 5.4.0-150-generic\
+System's version: #167~18.04.1-Ubuntu SMP Wed May 24 00:51:42 UTC 2023\
+Processor: x86_64\
 Processor (cpuinfo full): {'python_version': '3.6.9.final.0 (64 bit)', 'cpuinfo_version': [9, 0, 0], 'cpuinfo_version_string': '9.0.0', 'arch': 'X86_64', 'bits': 64, 'count': 4, 'arch_string_raw': 'x86_64', 'vendor_id_raw': 'GenuineIntel', 'brand_raw': 'Intel(R) Core(TM) i5-6600 CPU @ 3.30GHz', 'hz_advertised_friendly': '3.3000 GHz', 'hz_actual_friendly': '3.6414 GHz', 'hz_advertised': [3300000000, 0], 'hz_actual': [3641434000, 0], 'stepping': 3, 'model': 94, 'family': 6, 'flags': ['3dnowprefetch', 'abm', 'acpi', 'adx', 'aes', 'aperfmperf', 'apic', 'arat', 'arch_capabilities', 'arch_perfmon', 'art', 'avx', 'avx2', 'bmi1', 'bmi2', 'bts', 'clflush', 'clflushopt', 'cmov', 'constant_tsc', 'cpuid', 'cpuid_fault', 'cx16', 'cx8', 'de', 'ds_cpl', 'dtes64', 'dtherm', 'dts', 'epb', 'ept', 'ept_ad', 'erms', 'est', 'f16c', 'flexpriority', 'flush_l1d', 'fma', 'fpu', 'fsgsbase', 'fxsr', 'hle', 'ht', 'hwp', 'hwp_act_window', 'hwp_epp', 'hwp_notify', 'ibpb', 'ibrs', 'ida', 'intel_pt', 'invpcid', 'invpcid_single', 'lahf_lm', 'lm', 'mca', 'mce', 'md_clear', 'mmx', 'monitor', 'movbe', 'mpx', 'msr', 'mtrr', 'nonstop_tsc', 'nopl', 'nx', 'osxsave', 'pae', 'pat', 'pbe', 'pcid', 'pclmulqdq', 'pdcm', 'pdpe1gb', 'pebs', 'pge', 'pln', 'pni', 'popcnt', 'pse', 'pse36', 'pti', 'pts', 'rdrand', 'rdrnd', 'rdseed', 'rdtscp', 'rep_good', 'rtm', 'sdbg', 'sep', 'sgx', 'smap', 'smep', 'smx', 'ss', 'ssbd', 'sse', 'sse2', 'sse4_1', 'sse4_2', 'ssse3', 'stibp', 'syscall', 'tm', 'tm2', 'tpr_shadow', 'tsc', 'tsc_adjust', 'tsc_deadline_timer', 'tscdeadline', 'vme', 'vmx', 'vnmi', 'vpid', 'x2apic', 'xgetbv1', 'xsave', 'xsavec', 'xsaveopt', 'xsaves', 'xtopology', 'xtpr'], 'l3_cache_size': 6291456, 'l2_cache_size': 262144, 'l1_data_cache_size': 32768, 'l1_instruction_cache_size': 32768, 'l2_cache_line_size': 256, 'l2_cache_associativity': 6}
 
 ==============================================================
