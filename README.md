@@ -31,6 +31,6 @@ All results are located under 'results' folder. Links addition will be automated
 Just to be sure - do not run this under sudo!!! If you see can't access folder or file error, grant read and write permissions to anyone only to this benchs folder and enclosed folders and files.
 
 Results links:
-1. [a relative link](results/apple_m2_pro.md)
-2. [a relative link](results/intel(r)_core(tm)_i5-6600_cpu_@_3.30ghz.md)
-3. [a relative link](results/intel(r)_core(tm)_i5-8500_cpu_@_3.00ghz.md)
+1. [M2 Pro 16 GB RAM](results/apple_m2_pro.md)
+2. [Ubuntu 18.04 Intel i5-6600 3.30ghz 16 GB RAM](results/intel(r)_core(tm)_i5-6600_cpu_@_3.30ghz.md)
+3. [iMac 2019 i5-8500 3.00ghz 16 GB RAM](results/intel(r)_core(tm)_i5-8500_cpu_@_3.00ghz.md)
