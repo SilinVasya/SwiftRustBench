@@ -11,6 +11,15 @@ let package = Package(
             targets: ["CommonAPI"]),
     ],
     targets: [
-        .target(name: "CommonAPI")
+        .target(
+            name: "WindowsBridge",
+            dependencies: [],
+            path: "Sources/WindowsBridge"),
+        .target(
+            name: "CommonAPI",
+            dependencies: [
+                .target(name: "WindowsBridge")
+            ],
+            path: "Sources/CommonAPI")
     ]
 )

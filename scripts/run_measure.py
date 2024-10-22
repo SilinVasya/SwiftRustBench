@@ -6,6 +6,7 @@ import subprocess
 import json
 import platform
 import cpuinfo
+import sys
 
 def process_stdout(process_output, store_to):
     string_output = process_output.decode('utf-8')
@@ -21,6 +22,7 @@ def run_swift_code(from_path, store_to):
     os.chdir(from_path)
     subprocess.run(["swift", "package", "clean"]) 
     process_output = subprocess.check_output(["swift", "run", "-c", "release"])
+    print(process_output)
     process_stdout(process_output, store_to)
     os.chdir(cwd)
 
@@ -29,6 +31,7 @@ def run_rust_code(from_path, store_to):
     os.chdir(from_path)
     subprocess.run(["cargo", "clean"]) 
     process_output = subprocess.check_output(["cargo", "run", "--release"])
+    print(process_output)
     process_stdout(process_output, store_to)
     os.chdir(cwd)
     
@@ -49,23 +52,33 @@ def create_github_table(swift_bench, rust_bench):
 EXCLUDE = ["Fasta", "RustModules", "scripts", "SwiftModules"]
 
 original_folder = os.getcwd()
+if sys.platform == 'win32':
+    path_delimeter = "\\"
+else:
+    path_delimeter = "/"
+
 try:
     os.chdir('..')
-                    
-    folders = os.walk("./")
-    folders = [folder for folder in folders if not folder[0].startswith('../.')]
-    folders = [folder for folder in folders if folder[0].endswith("/Rust/benchmark") or folder[0].endswith("/Swift")]
+    
+    print("Looking for benchs code folders")
+    folders = os.walk(f".{path_delimeter}")
+    folders = [folder for folder in folders if not folder[0].startswith(f"..{path_delimeter}.")]
+    folders = [folder for folder in folders if folder[0].endswith(f"{path_delimeter}Rust{path_delimeter}benchmark") or folder[0].endswith(f"{path_delimeter}Swift")]
     for exclude in EXCLUDE:
         folders = [folder for folder in folders if not exclude in folder[0]]
 
+    print(f"Found folders:\n{folders}")
     rust_store = []
     swift_store = []
     for root, dirs, files in folders:
         if "Rust" in root:
+            print(f"Running Rust at - {root}")
             run_rust_code(root, rust_store)
         elif "Swift" in root:
+            print(f"Running Swift at - {root}")
             run_swift_code(root, swift_store)
 
+    print("Grouping results")
     all_results = {}
     for rust_result in rust_store:
         all_results[rust_result["name"]] = { "rust": rust_result }
@@ -73,7 +86,9 @@ try:
     for swift_result in swift_store:
         all_results[swift_result["name"]]["swift"] = swift_result
 
-    f = open(f"results/{cpuinfo.get_cpu_info()['brand_raw'].lower().replace(' ', '_')}.md", "w")
+    print("Writing results to file")
+    file_name = f"{platform.system()}_{cpuinfo.get_cpu_info()['brand_raw'].lower().replace(' ', '_')}"
+    f = open(f"results{path_delimeter}{file_name}.md", "w")
     f.write(f"Processor (cpuinfo brand_raw): {cpuinfo.get_cpu_info()['brand_raw']}\n")
     f.write(f"Architecture - bit architecture: {platform.architecture()[0]}\n")
     f.write(f"Architecture - linkage format used for the executable: {platform.architecture()[1]}\n")
@@ -94,6 +109,7 @@ try:
         f.write("\n")
 
     f.close()
+    print(f"Done! Check results folder for file with name '{file_name}'.")
 
     os.chdir(original_folder)
     
