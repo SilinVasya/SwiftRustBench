@@ -102,8 +102,8 @@ try:
     f.write(f"Processor (cpuinfo full): {cpuinfo.get_cpu_info()}\n") # Example: Processor (cpuinfo): {'python_version': '3.9.6.final.0 (64 bit)', 'cpuinfo_version': [9, 0, 0], 'cpuinfo_version_string': '9.0.0', 'arch': 'ARM_8', 'bits': 64, 'count': 12, 'arch_string_raw': 'arm64', 'brand_raw': 'Apple M2 Pro'}
     f.write("\n")
     
-    for key in all_results:
-        results = all_results[key]
+    sorted_results = sorted(all_results.items())
+    for key, results in sorted_results:
         f.write("==============================================================\n")
         f.write(create_github_table(results["swift"], results["rust"]))
         f.write("\n")
