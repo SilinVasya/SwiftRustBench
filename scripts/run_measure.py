@@ -89,17 +89,17 @@ try:
     print("Writing results to file")
     file_name = f"{platform.system()}_{cpuinfo.get_cpu_info()['brand_raw'].lower().replace(' ', '_')}"
     f = open(f"results{path_delimeter}{file_name}.md", "w")
-    f.write(f"**Processor (cpuinfo brand_raw): {cpuinfo.get_cpu_info()['brand_raw']}**\\\n")
-    f.write(f"**Architecture - bit architecture: {platform.architecture()[0]}**\\\n")
-    f.write(f"**Architecture - linkage format used for the executable: {platform.architecture()[1]}**\\\n")
-    f.write(f"**Machine type: {platform.machine()}**\\\n")
-    f.write(f"**Platform: {platform.platform()}**\\\n")
-    f.write(f"**Platform aliased: {platform.platform()}**\\\n")
-    f.write(f"**System: {platform.system()}**\\\n")
-    f.write(f"**System's release: {platform.release()}**\\\n")
-    f.write(f"**System's version: {platform.version()}**\\\n")
-    f.write(f"**Processor: {platform.processor()}**\\\n")
-    f.write(f"**Processor (cpuinfo full): {cpuinfo.get_cpu_info()}**\\\n") # Example: Processor (cpuinfo): {'python_version': '3.9.6.final.0 (64 bit)', 'cpuinfo_version': [9, 0, 0], 'cpuinfo_version_string': '9.0.0', 'arch': 'ARM_8', 'bits': 64, 'count': 12, 'arch_string_raw': 'arm64', 'brand_raw': 'Apple M2 Pro'}
+    f.write(f"**Processor (cpuinfo brand_raw):** {cpuinfo.get_cpu_info()['brand_raw']}\\\n")
+    f.write(f"**Architecture - bit architecture:** {platform.architecture()[0]}\\\n")
+    f.write(f"**Architecture - linkage format used for the executable:** {platform.architecture()[1]}\\\n")
+    f.write(f"**Machine type:** {platform.machine()}\\\n")
+    f.write(f"**Platform:** {platform.platform()}\\\n")
+    f.write(f"**Platform aliased:** {platform.platform()}\\\n")
+    f.write(f"**System:** {platform.system()}\\\n")
+    f.write(f"**System's release:** {platform.release()}\\\n")
+    f.write(f"**System's version:** {platform.version()}\\\n")
+    f.write(f"**Processor:** {platform.processor()}\\\n")
+    f.write(f"**Processor (cpuinfo full):** {cpuinfo.get_cpu_info()}\\\n") # Example: Processor (cpuinfo): {'python_version': '3.9.6.final.0 (64 bit)', 'cpuinfo_version': [9, 0, 0], 'cpuinfo_version_string': '9.0.0', 'arch': 'ARM_8', 'bits': 64, 'count': 12, 'arch_string_raw': 'arm64', 'brand_raw': 'Apple M2 Pro'}
     f.write("\n")
     
     sorted_results = sorted(all_results.items())
