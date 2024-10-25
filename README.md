@@ -46,3 +46,4 @@ Just to be sure - do not run this under sudo!!! If you see can't access folder o
 2. Rust has better performance on non ARM CPUs
 3. Looks like Swift is less optimizaed on non ARM CPUs
 4. Swift is easier to use
+5. Compilation bug on Windows "Can't compile swift file. File name is too large.". Temporary fixed it by reducing absolute file path.
