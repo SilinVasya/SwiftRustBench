@@ -43,3 +43,4 @@ Just to be sure - do not run this under sudo!!! If you see can't access folder o
 1. Rust usually has better performance
 2. Rust has better performance on non ARM CPUs
 3. Looks like Swift is less optimizaed on non ARM CPUs
+4. Swift is easier to use
