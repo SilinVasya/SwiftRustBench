@@ -41,7 +41,7 @@ measure(
     name: "Binary tree",
     subname: "Swift class",
     measuresCount: MEASURE_COUNT) {
-    let tree = Tree(depth: UInt32(10))
+    let tree = Tree(depth: UInt32(15))
     TEMP_STORAGE.append(Int(tree.check))
 }
 

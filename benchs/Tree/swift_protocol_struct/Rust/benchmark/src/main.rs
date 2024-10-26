@@ -55,7 +55,7 @@ fn main() {
         Some("Swift struct with protocol"),
         MEASURE_COUNT,
         || {
-            let tree = TreeNode::create(10);
+            let tree = TreeNode::create(15);
             let result = tree.check();
 
             unsafe {

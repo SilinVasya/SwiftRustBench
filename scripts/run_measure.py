@@ -155,6 +155,7 @@ try:
         paired_results = sorted(paired_results.items())
         f.write("==============================================================\\\n")
         f.write(f"{key}\\\n")
+        f.write("\n")
         for key, results in paired_results:
             f.write(create_github_table(results[swift_path_key], results[rust_path_key]))
             f.write("\n")

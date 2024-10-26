@@ -59,7 +59,7 @@ measure(
     name: "Binary tree",
     subname: "Swift class with protocol",
     measuresCount: MEASURE_COUNT) {
-    let tree = createTree(depth: UInt32(10))
+    let tree = createTree(depth: UInt32(15))
     TEMP_STORAGE.append(Int(tree.check))
     tree.releaseRefs()
 }
