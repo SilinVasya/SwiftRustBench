@@ -56,7 +56,9 @@ class Solution {
     }
 }
 
+let MEASURE_COUNT = LARGE_MEASURE_COUNT
 var TEMP_STORAGE = Array<Int>()
+TEMP_STORAGE.reserveCapacity(MEASURE_COUNT)
 
 func testStr(solution: borrowing Solution, str: String) {
     let result1 = solution.minSwaps(str)
@@ -65,7 +67,7 @@ func testStr(solution: borrowing Solution, str: String) {
 
 measure(
     name: "Minimum Number of Swaps to Make the String Balanced https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/description/?envType=daily-question&envId=2024-10-08",
-    measuresCount: LARGE_MEASURE_COUNT
+    measuresCount: MEASURE_COUNT
     ) {
     let solution = Solution()
     

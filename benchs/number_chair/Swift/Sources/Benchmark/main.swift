@@ -256,8 +256,9 @@ class Solution {
 //     }
 // }
 
+let MEASURE_COUNT = MEDIUM_MEASURE_COUNT
 var TEMP_STORAGE = Array<Int>()
-TEMP_STORAGE.reserveCapacity(3 * MEDIUM_MEASURE_COUNT)
+TEMP_STORAGE.reserveCapacity(3 * MEASURE_COUNT)
 
 struct Sample: Decodable {
 
@@ -282,7 +283,7 @@ let samples = [
 
 measure(
     name: "The Number of the Smallest Unoccupied Chair: https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/description/?envType=daily-question&envId=2024-10-11",
-    measuresCount: MEDIUM_MEASURE_COUNT
+    measuresCount: MEASURE_COUNT
     ) {
     let solution = Solution()
 

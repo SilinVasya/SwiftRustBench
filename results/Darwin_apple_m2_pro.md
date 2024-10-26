@@ -11,118 +11,155 @@
 **Processor (cpuinfo full):** {'python_version': '3.9.6.final.0 (64 bit)', 'cpuinfo_version': [9, 0, 0], 'cpuinfo_version_string': '9.0.0', 'arch': 'ARM_8', 'bits': 64, 'count': 12, 'arch_string_raw': 'arm64', 'brand_raw': 'Apple M2 Pro'}\
 
 ==============================================================\
-{key}\
-
-| Field name | Swift | Rust |
-| ------------- | ------------- | ------------- |
-| Measures count      | 1000 | 1000 |
-| Total time      | 2.706787 ms  | 2.195240625 ms  |
-| Diff | 0.000016 ms  | 0.00012319199999977215 ms  |
-| Max | 0.005222 ms  | 0.002697875 ms  |
-| Min | 0.002520 ms  | 0.002093334 ms  |
-| Avg | 0.002707 ms  | 0.0021951174330000003 ms  |
-| Median | 0.002634 ms  | 0.00214775 ms  |
-    
-==============================================================\
-{key}\
-
-| Field name | Swift | Rust |
-| ------------- | ------------- | ------------- |
-| Measures count      | 1000 | 1000 |
-| Total time      | 2.486601 ms  | 2.624218291 ms  |
-| Diff | 0.000010 ms  | 0.00010803500000022837 ms  |
-| Max | 0.005582 ms  | 0.003502917 ms  |
-| Min | 0.002376 ms  | 0.002464708 ms  |
-| Avg | 0.002487 ms  | 0.002624110256 ms  |
-| Median | 0.002452 ms  | 0.002579084 ms  |
-    
-==============================================================\
-{key}\
-**Heap solution**\
-
-| Field name | Swift | Rust |
-| ------------- | ------------- | ------------- |
-| Measures count      | 1000 | 1000 |
-| Total time      | 7.880953 ms  | 3.090675875 ms  |
-| Diff | 0.000022 ms  | 6.221800000005828e-05 ms  |
-| Max | 0.008824 ms  | 0.003881166 ms  |
-| Min | 0.007496 ms  | 0.002969666 ms  |
-| Avg | 0.007881 ms  | 0.0030906136570000003 ms  |
-| Median | 0.007799 ms  | 0.00304175 ms  |
-    
-**Sort borders**\
-
-| Field name | Swift | Rust |
-| ------------- | ------------- | ------------- |
-| Measures count      | 1000 | 1000 |
-| Total time      | 10.404475 ms  | 8.508361791 ms  |
-| Diff | 0.000015 ms  | 0.000116174000000413 ms  |
-| Max | 0.011708 ms  | 0.016092292 ms  |
-| Min | 0.010003 ms  | 0.008328542 ms  |
-| Avg | 0.010404 ms  | 0.008508245617 ms  |
-| Median | 0.010221 ms  | 0.0083595 ms  |
-    
-**Sweep window**\
-
-| Field name | Swift | Rust |
-| ------------- | ------------- | ------------- |
-| Measures count      | 1000 | 1000 |
-| Total time      | 1.500523 ms  | 0.657944959 ms  |
-| Diff | 0.000012 ms  | 7.620600000002309e-05 ms  |
-| Max | 0.002491 ms  | 0.001650833 ms  |
-| Min | 0.001409 ms  | 0.0005915 ms  |
-| Avg | 0.001501 ms  | 0.0006578687530000001 ms  |
-| Median | 0.001486 ms  | 0.000632792 ms  |
-    
-==============================================================\
-{key}\
-
-| Field name | Swift | Rust |
-| ------------- | ------------- | ------------- |
-| Measures count      | 1000000 | 1000000 |
-| Total time      | 30.030420 ms  | 30.161251125 ms  |
-| Diff | 0.013554 ms  | 0.08959158500000086 ms  |
-| Max | 0.000556 ms  | 0.000142583 ms  |
-| Min | 0.000028 ms  | 2.8708e-05 ms  |
-| Avg | 0.000030 ms  | 3.007165954e-05 ms  |
-| Median | 0.000030 ms  | 2.9667e-05 ms  |
-    
-==============================================================\
-{key}\
-
-| Field name | Swift | Rust |
-| ------------- | ------------- | ------------- |
-| Measures count      | 1000000 | 1000000 |
-| Total time      | 0.703876 ms  | 1.153984042 ms  |
-| Diff | 0.012092 ms  | 0.08221510900000006 ms  |
-| Max | 0.000459 ms  | 2.7292e-05 ms  |
-| Min | 0.000000 ms  | 9.16e-07 ms  |
-| Avg | 0.000001 ms  | 1.0717689330000001e-06 ms  |
-| Median | 0.000001 ms  | 1.042e-06 ms  |
-    
-==============================================================\
-{key}\
-
-| Field name | Swift | Rust |
-| ------------- | ------------- | ------------- |
-| Measures count      | 1000000 | 1000000 |
-| Total time      | 5.264536 ms  | 9.494404959 ms  |
-| Diff | 0.012402 ms  | 0.08262277200000057 ms  |
-| Max | 0.001476 ms  | 0.001698541 ms  |
-| Min | 0.000004 ms  | 9.125e-06 ms  |
-| Avg | 0.000005 ms  | 9.411782187e-06 ms  |
-| Median | 0.000005 ms  | 9.25e-06 ms  |
-    
-==============================================================\
-{key}\
+Binary tree\
+**Swift class**
 
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 100000 | 100000 |
-| Total time      | 148.357147 ms  | 134.784517042 ms  |
-| Diff | 0.000943 ms  | 0.008127378000011731 ms  |
-| Max | 0.004103 ms  | 0.002887 ms  |
-| Min | 0.001453 ms  | 0.001318667 ms  |
-| Avg | 0.001484 ms  | 0.00134776389664 ms  |
-| Median | 0.001465 ms  | 0.001331791 ms  |
+| Total time      | 6.984430 ms  | 3.327245875 ms  |
+| Diff | 0.001286 ms  | 0.008435948999999887 ms  |
+| Max | 0.000181 ms  | 0.000972792 ms  |
+| Min | 0.000065 ms  | 3.1375e-05 ms  |
+| Avg | 0.000070 ms  | 3.318809926e-05 ms  |
+| Median | 0.000069 ms  | 3.2708e-05 ms  |
+    
+**Swift class with protocol**
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 100000 | 100000 |
+| Total time      | 14.732269 ms  | 3.345830792 ms  |
+| Diff | 0.001330 ms  | 0.008692787000000202 ms  |
+| Max | 0.000355 ms  | 0.000233 ms  |
+| Min | 0.000137 ms  | 3.1708e-05 ms  |
+| Avg | 0.000147 ms  | 3.337138005e-05 ms  |
+| Median | 0.000145 ms  | 3.3042e-05 ms  |
+    
+**Swift struct with protocol**
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 100000 | 100000 |
+| Total time      | 12.836943 ms  | 3.287343459 ms  |
+| Diff | 0.001397 ms  | 0.008226495000000167 ms  |
+| Max | 0.000443 ms  | 0.00025375 ms  |
+| Min | 0.000115 ms  | 3.1667e-05 ms  |
+| Avg | 0.000128 ms  | 3.279116964e-05 ms  |
+| Median | 0.000126 ms  | 3.2125e-05 ms  |
+    
+**Swift struct with reference**
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 100000 | 100000 |
+| Total time      | 4.184062 ms  | 3.403275084 ms  |
+| Diff | 0.001216 ms  | 0.008832394000000132 ms  |
+| Max | 0.000123 ms  | 0.000167958 ms  |
+| Min | 0.000039 ms  | 3.1791e-05 ms  |
+| Avg | 0.000042 ms  | 3.3944426899999995e-05 ms  |
+| Median | 0.000041 ms  | 3.3042e-05 ms  |
+    
+==============================================================\
+Circular Deque\
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 2.471793 ms  | 2.576028916 ms  |
+| Diff | 0.000008 ms  | 0.0002158209999998384 ms  |
+| Max | 0.005811 ms  | 0.00791475 ms  |
+| Min | 0.002374 ms  | 0.002463792 ms  |
+| Avg | 0.002472 ms  | 0.002575813095 ms  |
+| Median | 0.002403 ms  | 0.00250875 ms  |
+    
+==============================================================\
+Divide Intervals Into Minimum Number of Groups: https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/description/?envType=daily-question&envId=2024-10-12\
+**Heap solution**
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 7.859595 ms  | 3.125912583 ms  |
+| Diff | 0.000015 ms  | 8.3177999999684e-05 ms  |
+| Max | 0.009063 ms  | 0.003967709 ms  |
+| Min | 0.007534 ms  | 0.003007541 ms  |
+| Avg | 0.007860 ms  | 0.003125829405 ms  |
+| Median | 0.007817 ms  | 0.003113291 ms  |
+    
+**Sort borders**
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 10.522724 ms  | 8.533931208 ms  |
+| Diff | 0.000010 ms  | 0.00012925200000069026 ms  |
+| Max | 0.011862 ms  | 0.013366291 ms  |
+| Min | 0.010024 ms  | 0.008333875 ms  |
+| Avg | 0.010523 ms  | 0.008533801956 ms  |
+| Median | 0.010413 ms  | 0.00836775 ms  |
+    
+**Sweep window**
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000 | 1000 |
+| Total time      | 1.517547 ms  | 0.654499417 ms  |
+| Diff | 0.000013 ms  | 9.76420000000644e-05 ms  |
+| Max | 0.002054 ms  | 0.000941625 ms  |
+| Min | 0.001394 ms  | 0.000592791 ms  |
+| Avg | 0.001518 ms  | 0.000654401775 ms  |
+| Median | 0.001484 ms  | 0.000642708 ms  |
+    
+==============================================================\
+Maximum Width Ramp: https://leetcode.com/problems/maximum-width-ramp/description/?envType=daily-question&envId=2024-10-10\
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000000 | 1000000 |
+| Total time      | 30.067750 ms  | 30.201583625 ms  |
+| Diff | 0.013903 ms  | 0.09295240300000174 ms  |
+| Max | 0.000145 ms  | 0.0002775 ms  |
+| Min | 0.000028 ms  | 2.8708e-05 ms  |
+| Avg | 0.000030 ms  | 3.0108631222e-05 ms  |
+| Median | 0.000030 ms  | 2.9666e-05 ms  |
+    
+==============================================================\
+Minimum Add to Make Parentheses Valid: https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/?envType=daily-question&envId=2024-10-09\
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000000 | 1000000 |
+| Total time      | 0.702722 ms  | 1.18627175 ms  |
+| Diff | 0.012411 ms  | 0.082227563 ms  |
+| Max | 0.000047 ms  | 9.5333e-05 ms  |
+| Min | 0.000000 ms  | 9.16e-07 ms  |
+| Avg | 0.000001 ms  | 1.104044187e-06 ms  |
+| Median | 0.000001 ms  | 1.042e-06 ms  |
+    
+==============================================================\
+Minimum Number of Swaps to Make the String Balanced https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/description/?envType=daily-question&envId=2024-10-08\
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 1000000 | 1000000 |
+| Total time      | 5.115418 ms  | 9.495475875 ms  |
+| Diff | 0.013484 ms  | 0.08039055500000103 ms  |
+| Max | 0.001616 ms  | 9.6583e-05 ms  |
+| Min | 0.000004 ms  | 9.166e-06 ms  |
+| Avg | 0.000005 ms  | 9.41508532e-06 ms  |
+| Median | 0.000005 ms  | 9.25e-06 ms  |
+    
+==============================================================\
+The Number of the Smallest Unoccupied Chair: https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/description/?envType=daily-question&envId=2024-10-11\
+
+| Field name | Swift | Rust |
+| ------------- | ------------- | ------------- |
+| Measures count      | 100000 | 100000 |
+| Total time      | 149.486276 ms  | 135.47511 ms  |
+| Diff | 0.000806 ms  | 0.00784499400000982 ms  |
+| Max | 0.005119 ms  | 0.002786458 ms  |
+| Min | 0.001453 ms  | 0.001318792 ms  |
+| Avg | 0.001495 ms  | 0.0013546726500599999 ms  |
+| Median | 0.001472 ms  | 0.001336708 ms  |
     

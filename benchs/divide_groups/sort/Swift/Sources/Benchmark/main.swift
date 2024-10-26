@@ -36,8 +36,9 @@ class Solution {
     }
 }
 
+let MEASURE_COUNT = DEFAULT_MEASURE_COUNT
 var TEMP_STORAGE = Array<Int>()
-TEMP_STORAGE.reserveCapacity(DEFAULT_MEASURE_COUNT)
+TEMP_STORAGE.reserveCapacity(MEASURE_COUNT)
 
 struct Sample: Decodable {
 
@@ -57,7 +58,7 @@ let sample = readSample()
 measure(
     name: "Divide Intervals Into Minimum Number of Groups: https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/description/?envType=daily-question&envId=2024-10-12",
     subname: "Sort borders",
-    measuresCount: DEFAULT_MEASURE_COUNT
+    measuresCount: MEASURE_COUNT
     ) {
     let solution = Solution()
 

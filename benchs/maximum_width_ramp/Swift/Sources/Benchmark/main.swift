@@ -96,8 +96,9 @@ class Solution {
     */
 }
 
+let MEASURE_COUNT = LARGE_MEASURE_COUNT
 var TEMP_STORAGE = Array<Int>()
-// TEMP_STORAGE.reserveCapacity(LARGE_MEASURE_COUNT)
+TEMP_STORAGE.reserveCapacity(MEASURE_COUNT)
 
 let sampleURL = Bundle.module.url(forResource: "sample", withExtension: "txt")!
 let numsString = try! String(contentsOf: sampleURL, encoding: .utf8)
@@ -105,7 +106,7 @@ let nums = numsString.components(separatedBy: ",").map { Int($0)! }
 
 measure(
     name: "Maximum Width Ramp: https://leetcode.com/problems/maximum-width-ramp/description/?envType=daily-question&envId=2024-10-10",
-    measuresCount: LARGE_MEASURE_COUNT
+    measuresCount: MEASURE_COUNT
     ) {
     let solution = Solution()
     let result1 = solution.maxWidthRamp(nums)

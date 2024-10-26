@@ -44,11 +44,16 @@ def create_github_table(swift_bench, rust_bench):
     if swift_bench[subname_key] != rust_bench[subname_key]:
         print(f"Subname missmatch: Swift {swift_bench[subname_key]}; Rust {rust_bench[subname_key]}")
         sys.exit(-5)
+        
+    measures_count_key = "measures_count"
+    if swift_bench[measures_count_key] != rust_bench[measures_count_key]:
+        print(f"{measures_count_key} missmatch: Swift {swift_bench[subname_key]}; Rust {rust_bench[subname_key]}")
+        sys.exit(-5)
     
     result_string = f'''
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
-| Measures count      | {swift_bench["measures_count"]} | {rust_bench["measures_count"]} |
+| Measures count      | {swift_bench[measures_count_key]} | {rust_bench[measures_count_key]} |
 | Total time      | {swift_bench["total_time"]} ms  | {rust_bench["total_time"]} ms  |
 | Diff | {swift_bench["diff"]} ms  | {rust_bench["diff"]} ms  |
 | Max | {swift_bench["max"]} ms  | {rust_bench["max"]} ms  |
@@ -58,7 +63,7 @@ def create_github_table(swift_bench, rust_bench):
     '''
     
     if swift_bench[subname_key] != default_bench_subname:
-        return f"**{swift_bench[subname_key]}**\\\n{result_string}"
+        return f"**{swift_bench[subname_key]}**\n{result_string}"
     
     return result_string
 
@@ -149,7 +154,7 @@ try:
         
         paired_results = sorted(paired_results.items())
         f.write("==============================================================\\\n")
-        f.write("{key}\\\n")
+        f.write(f"{key}\\\n")
         for key, results in paired_results:
             f.write(create_github_table(results[swift_path_key], results[rust_path_key]))
             f.write("\n")

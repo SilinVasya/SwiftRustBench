@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            path: "../../../SwiftModules"
+            path: "../../../../SwiftModules"
         )
     ],
     targets: [
