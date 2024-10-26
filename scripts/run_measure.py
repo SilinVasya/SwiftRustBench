@@ -8,11 +8,16 @@ import platform
 import cpuinfo
 import sys
 
+default_bench_subname = "default"
+subname_key = "subname"
+
+out_prefix = "<<<RESULTS:"
+out_postfix = ">>>"
 def process_stdout(process_output, store_to):
     string_output = process_output.decode('utf-8')
-    json_begin = string_output.index("{")
-    json_ends = string_output.index("}")
-    json_string = string_output[json_begin:json_ends + 1]
+    json_begin = string_output.index(out_prefix)
+    json_ends = string_output.index(out_postfix)
+    json_string = string_output[json_begin + len(out_prefix):json_ends]
     results = json.loads(json_string)
     store_to.append(results)
     print(f"results: {results}")
@@ -36,9 +41,12 @@ def run_rust_code(from_path, store_to):
     os.chdir(cwd)
     
 def create_github_table(swift_bench, rust_bench):
-    return f'''
-{swift_bench["name"]}
-| Field name  | Swift          | RUST         |
+    if swift_bench[subname_key] != rust_bench[subname_key]:
+        print(f"Subname missmatch: Swift {swift_bench[subname_key]}; Rust {rust_bench[subname_key]}")
+        sys.exit(-5)
+    
+    result_string = f'''
+| Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | {swift_bench["measures_count"]} | {rust_bench["measures_count"]} |
 | Total time      | {swift_bench["total_time"]} ms  | {rust_bench["total_time"]} ms  |
@@ -48,8 +56,11 @@ def create_github_table(swift_bench, rust_bench):
 | Avg | {swift_bench["average"]} ms  | {rust_bench["average"]} ms  |
 | Median | {swift_bench["median"]} ms  | {rust_bench["median"]} ms  |
     '''
-
-EXCLUDE = ["Fasta", "RustModules", "scripts", "SwiftModules"]
+    
+    if swift_bench[subname_key] != default_bench_subname:
+        return f"**{swift_bench[subname_key]}**\n{result_string}"
+    
+    return result_string
 
 original_folder = os.getcwd()
 if sys.platform == 'win32':
@@ -61,12 +72,10 @@ try:
     os.chdir('..')
     
     print("Looking for benchs code folders")
-    folders = os.walk(f".{path_delimeter}")
+    folders = os.walk(f".{path_delimeter}benchs")
     folders = [folder for folder in folders if not folder[0].startswith(f"..{path_delimeter}.")]
     folders = [folder for folder in folders if folder[0].endswith(f"{path_delimeter}Rust{path_delimeter}benchmark") or folder[0].endswith(f"{path_delimeter}Swift")]
-    for exclude in EXCLUDE:
-        folders = [folder for folder in folders if not exclude in folder[0]]
-
+    
     print(f"Found folders:\n{folders}")
     rust_store = []
     swift_store = []
@@ -79,12 +88,27 @@ try:
             run_swift_code(root, swift_store)
 
     print("Grouping results")
+    rust_path_key = "rust"
     all_results = {}
     for rust_result in rust_store:
-        all_results[rust_result["name"]] = { "rust": rust_result }
+        if not rust_result["name"] in all_results:
+            all_results[rust_result["name"]] = { rust_path_key: [rust_result] }
+        else:
+            name_results = all_results[rust_result["name"]]
+            name_results[rust_path_key].append(rust_result)
 
+    print(f"All Rust results keys: {all_results.keys()}")
+    swift_path_key = "swift"
     for swift_result in swift_store:
-        all_results[swift_result["name"]]["swift"] = swift_result
+        if not swift_result["name"] in all_results:
+            print(f"Can't find Rust results for {swift_result['name']}. Pairing missmatch.")
+            sys.exit(-1)
+        
+        name_results = all_results[swift_result["name"]]
+        if not swift_path_key in name_results:
+            name_results[swift_path_key] = [swift_result]
+        else:
+            name_results[swift_path_key].append(swift_result)
 
     print("Writing results to file")
     file_name = f"{platform.system()}_{cpuinfo.get_cpu_info()['brand_raw'].lower().replace(' ', '_')}"
@@ -104,9 +128,32 @@ try:
     
     sorted_results = sorted(all_results.items())
     for key, results in sorted_results:
+        if len(results[swift_path_key]) != len(results[rust_path_key]):
+            print(f"RESULTS LENGTH MISSMATCH!!!!!!!!\nSwift: {results['swift']}\nRust: {results['rust']}")
+            sys.exit(-4)
+        
+        paired_results = {}
+        for rust_result in results[rust_path_key]:
+            if rust_result[subname_key] in paired_results:
+                print(f"Same subname used twice {rust_result[subname_key]}. Pairing missmatch.")
+                sys.exit(-2)
+            
+            paired_results[rust_result[subname_key]] = { rust_path_key: rust_result }
+
+        for swift_result in results[swift_path_key]:
+            if not swift_result[subname_key] in paired_results:
+                print(f"No subname for Rust result {swift_result[subname_key]}. Pairing missmatch.")
+                sys.exit(-3)
+            
+            paired_results[swift_result[subname_key]][swift_path_key] = swift_result
+        
+        print(f"paired_results: {paired_results}")
+        
+        paired_results = sorted(paired_results.items())
         f.write("==============================================================\n")
-        f.write(create_github_table(results["swift"], results["rust"]))
-        f.write("\n")
+        for key, results in paired_results:
+            f.write(create_github_table(results[swift_path_key], results[rust_path_key]))
+            f.write("\n")
 
     f.close()
     print(f"Done! Check results folder for file with name '{file_name}'.")

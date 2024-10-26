@@ -11,6 +11,7 @@ pub static LARGE_MEASURE_COUNT: i32 = 1_000_000;
 #[derive(Serialize, Deserialize)]
 struct RunResults<'a> {
     name: &'a str,
+    subname: &'a str,
     measures_count: i32,
     total_time: f64,
     diff: f64,
@@ -24,6 +25,7 @@ impl<'a> RunResults<'a> {
 
     fn new(
         name: &'a str,
+        subname: Option<&'a str>,
         measures_count: i32,
         total_time: f64,
         diff: f64,
@@ -34,6 +36,7 @@ impl<'a> RunResults<'a> {
     ) -> Self {
         RunResults {
             name,
+            subname: subname.unwrap_or("default"),
             measures_count,
             total_time,
             diff,
@@ -45,7 +48,7 @@ impl<'a> RunResults<'a> {
     }
 }
 
-pub fn measure(name: &str, measures_count: i32, run: impl Fn()) {
+pub fn measure(name: &str, subname: Option<&str>, measures_count: i32, run: impl Fn()) {
     let mut measures = Vec::new();
     let for_start_time = Instant::now();
     for _ in 0..measures_count {
@@ -84,6 +87,7 @@ pub fn measure(name: &str, measures_count: i32, run: impl Fn()) {
 
     let results = RunResults::new(
         name,
+        subname,
         measures_count,
         total_time,
         diff,
@@ -92,6 +96,7 @@ pub fn measure(name: &str, measures_count: i32, run: impl Fn()) {
         average,
         median
     );
-    let results_string = serde_json::to_string(&results).expect("Can't parse to JSON");
-    io::stdout().write_all(&results_string.into_bytes()).expect("Can't write to stdout");
+    let results_json_string = serde_json::to_string(&results).expect("Can't parse to JSON");
+    let results_string = format!("<<<RESULTS:{results_json_string}>>>");
+    io::stdout().write_all(results_string.as_bytes()).expect("Can't write to stdout");
 }

@@ -4,7 +4,10 @@ public let DEFAULT_MEASURE_COUNT = 1_000;
 public let MEDIUM_MEASURE_COUNT = 100_000;
 public let LARGE_MEASURE_COUNT = 1_000_000;
 
-public func measure(name: String, measuresCount: Int = 1_000, algo: () -> Void) {
+public func measure(name: String,
+                    subname: String = "default",
+                    measuresCount: Int = 1_000,
+                    algo: () -> Void) {
     var durations = Array<Int64>()
     durations.reserveCapacity(measuresCount)
     
@@ -26,6 +29,7 @@ public func measure(name: String, measuresCount: Int = 1_000, algo: () -> Void) 
 
     var results: [String: Any] = [
         "name": name,
+        "subname": subname,
         "measures_count": measuresCount
     ]
 
@@ -57,7 +61,9 @@ public func measure(name: String, measuresCount: Int = 1_000, algo: () -> Void) 
     results["median"] = medianStr
 
     let stdout = FileHandle.standardOutput
-    stdout.write(try! JSONSerialization.data(withJSONObject: results))
+    let resultJSON = String(data: try! JSONSerialization.data(withJSONObject: results), encoding: .utf8)!
+    let resultMessage = "<<<RESULTS:\(resultJSON)>>>"
+    stdout.write(Data(resultMessage.utf8))
 
     print("")
 }
