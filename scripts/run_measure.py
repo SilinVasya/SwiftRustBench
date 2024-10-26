@@ -58,7 +58,7 @@ def create_github_table(swift_bench, rust_bench):
     '''
     
     if swift_bench[subname_key] != default_bench_subname:
-        return f"**{swift_bench[subname_key]}**\n{result_string}"
+        return f"**{swift_bench[subname_key]}**\\\n{result_string}"
     
     return result_string
 
@@ -147,10 +147,9 @@ try:
             
             paired_results[swift_result[subname_key]][swift_path_key] = swift_result
         
-        print(f"paired_results: {paired_results}")
-        
         paired_results = sorted(paired_results.items())
-        f.write("==============================================================\n")
+        f.write("==============================================================\\\n")
+        f.write("{key}\\\n")
         for key, results in paired_results:
             f.write(create_github_table(results[swift_path_key], results[rust_path_key]))
             f.write("\n")
