@@ -110,7 +110,7 @@ struct MyCircularDeque {//: ~Copyable {
         }
 
         mutating func free() {
-            // self.array.deinitialize()
+            self.array.deinitialize()
             self.array.deallocate()
         }
 
@@ -141,7 +141,7 @@ struct MyCircularDeque {//: ~Copyable {
     func free() {
         self.pointer.pointee.free()
 
-        // self.pointer.deinitialize(count: 1)
+        self.pointer.deinitialize(count: 1)
         self.pointer.deallocate()
     }
 
