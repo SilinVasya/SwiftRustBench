@@ -1,5 +1,5 @@
 use common_api::measure;
-use common_api::MEDIUM_MEASURE_COUNT;
+use common_api::DEFAULT_MEASURE_COUNT;
 use rand::prelude::*;
 
 type Full<T> = static_rc::StaticRc<T, 2, 2>;
@@ -42,7 +42,7 @@ impl TreeNode {
     }
 }
 
-static MEASURE_COUNT: i32 = MEDIUM_MEASURE_COUNT;
+static MEASURE_COUNT: i32 = DEFAULT_MEASURE_COUNT;
 static mut TEMP_STORAGE: Vec<i32> = Vec::new();
 
 fn main() {

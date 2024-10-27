@@ -51,7 +51,7 @@ func createTree(depth: UInt32) -> PTree {
     Tree(depth: depth)
 }
 
-let MEASURE_COUNT = MEDIUM_MEASURE_COUNT
+let MEASURE_COUNT = DEFAULT_MEASURE_COUNT
 var TEMP_STORAGE = Array<Int>()
 TEMP_STORAGE.reserveCapacity(MEASURE_COUNT)
 
