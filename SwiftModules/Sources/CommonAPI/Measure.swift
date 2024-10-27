@@ -1,4 +1,4 @@
-private import Foundation
+import Foundation
 
 public let DEFAULT_MEASURE_COUNT = 1_000;
 public let MEDIUM_MEASURE_COUNT = 100_000;
