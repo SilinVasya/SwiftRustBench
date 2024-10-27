@@ -1,5 +1,5 @@
 use common_api::measure;
-use common_api::MEDIUM_MEASURE_COUNT;
+use common_api::DEFAULT_MEASURE_COUNT;
 use rand::prelude::*;
 use serde::{Deserialize, Serialize};
 use serde_json;
@@ -61,7 +61,7 @@ impl Solution {
     }
 }
 
-static MEASURE_COUNT: i32 = MEDIUM_MEASURE_COUNT;
+static MEASURE_COUNT: i32 = DEFAULT_MEASURE_COUNT;
 static mut TEMP_STORAGE: Vec<i32> = Vec::new();
 
 fn read_sample(number: i32) -> Sample {

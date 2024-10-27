@@ -44,7 +44,7 @@ class Solution {
 @main
 class MyApp {
     static func main() {
-        let MEASURE_COUNT = MEDIUM_MEASURE_COUNT
+        let MEASURE_COUNT = DEFAULT_MEASURE_COUNT
         var TEMP_STORAGE = [Int]()
 
         struct Sample: Decodable {
