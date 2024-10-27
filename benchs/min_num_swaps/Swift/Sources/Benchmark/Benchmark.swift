@@ -6,7 +6,7 @@ import CommonAPI
 let charI = Character("[").asciiValue!
 
 class Solution {
-    // func minSwaps(_ s: borrowing String) -> Int {
+    // func minSwaps(_ s: String) -> Int {
     //     let counter = s.reduce(into: 0) { counter, char in
     //         if char.asciiValue! == charI {
     //             counter += 1
@@ -18,7 +18,7 @@ class Solution {
     //     return (counter + 1) / 2
     // }
 
-    // func minSwaps(_ s: borrowing String) -> Int {
+    // func minSwaps(_ s: String) -> Int {
     //     let counter = s.utf8.reduce(into: 0) { counter, char in
     //         if char == charI {
     //             counter += 1
@@ -30,7 +30,7 @@ class Solution {
     //     return (counter + 1) / 2
     // }
 
-    // func minSwaps(_ s: borrowing String) -> Int {
+    // func minSwaps(_ s: String) -> Int {
     //     var counter = 0
     //     for char in Array(s.utf8) {
     //         if char == charI {
@@ -43,7 +43,7 @@ class Solution {
     //     return (counter + 1) / 2
     // }
 
-    func minSwaps(_ s: borrowing String) -> Int {
+    func minSwaps(_ s: String) -> Int {
         let counter = Array(s.utf8).reduce(into: 0) { counter, char in
             if char == charI {
                 counter += 1
@@ -60,7 +60,7 @@ let MEASURE_COUNT = LARGE_MEASURE_COUNT
 var TEMP_STORAGE = Array<Int>()
 TEMP_STORAGE.reserveCapacity(MEASURE_COUNT)
 
-func testStr(solution: borrowing Solution, str: String) {
+func testStr(solution: Solution, str: String) {
     let result1 = solution.minSwaps(str)
     TEMP_STORAGE.append(result1)
 }

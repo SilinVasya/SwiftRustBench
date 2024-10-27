@@ -4,7 +4,7 @@ import CommonAPI
 
 // Non copyable pointer
 
-struct MyCircularDeque: ~Copyable {
+struct MyCircularDeque {//: ~Copyable {
 
     private struct MyCircularDequeData {
 
