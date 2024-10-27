@@ -24,14 +24,14 @@ struct Tree {
     func releaseRefs() {
         if let left {
             left.pointee.releaseRefs()
-            left.deinitialize(count: 1)
+            // left.deinitialize(count: 1)
             left.deallocate()
         }
 
         if let right {
             right.pointee.releaseRefs()
 
-            right.deinitialize(count: 1)
+            // right.deinitialize(count: 1)
             right.deallocate()
         }
     }

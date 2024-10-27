@@ -1,5 +1,5 @@
-private import Foundation
-private import WindowsBridge
+import Foundation
+import WindowsBridge
 
 private let exponent = Int64(1.0E+6)
 
