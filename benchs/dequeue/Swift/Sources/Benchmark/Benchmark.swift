@@ -138,7 +138,7 @@ struct MyCircularDeque {//: ~Copyable {
         self.pointer.initialize(to: MyCircularDequeData(k))
     }
 
-    deinit {
+    func free() {
         self.pointer.pointee.free()
 
         self.pointer.deinitialize(count: 1)
@@ -334,4 +334,6 @@ measure(name: "Circular Deque") {
             _ = queue.isFull();
         }
     }
+
+    queue.free()
 }
