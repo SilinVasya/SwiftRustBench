@@ -24,7 +24,7 @@ There are no autotests for solutions because each solution is tested via leetcod
 2. [M2 Pro 16 GB RAM](results/Darwin_apple_m2_pro.md)
 3. [Ubuntu 18.04 Intel i5-6600 3.30ghz 16 GB RAM](results/Linux_intel(r)_core(tm)_i5-6600_cpu_@_3.30ghz.md)
 4. [Windows Intel i5-6600 3.30ghz 16 GB RAM](results/Windows_intel(r)_core(tm)_i5-6600_cpu_@_3.30ghz.md)
-5. [iMac 2019 i5-8500 3.00ghz 16 GB RAM](results/intel(r)_core(tm)_i5-8500_cpu_@_3.00ghz.md)
+5. [iMac 2019 i5-8500 3.00ghz 16 GB RAM](results/Darwin_intel(r)_core(tm)_i5-8500_cpu_@_3.00ghz.md)
 
 **Roadmap:**
 1. Change benchmarks format
