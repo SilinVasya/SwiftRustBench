@@ -18,48 +18,48 @@ Binary tree\
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 2.330449 ms  | 1.153713125 ms  |
-| Diff | 0.000011 ms  | 0.0001100989999998081 ms  |
-| Max | 0.004610 ms  | 0.002597916 ms  |
-| Min | 0.002166 ms  | 0.001068375 ms  |
-| Avg | 0.002330 ms  | 0.0011536030260000001 ms  |
-| Median | 0.002298 ms  | 0.001104417 ms  |
+| Total time      | 2330.449 ms  | 1153.713125 ms  |
+| Diff | 0.011 ms  | 0.1100989999998081 ms  |
+| Max | 4.610 ms  | 2.597916 ms  |
+| Min | 2.166 ms  | 1.068375 ms  |
+| Avg | 2.330 ms  | 1.1536030260000001 ms  |
+| Median | 2.298 ms  | 1.104417 ms  |
     
 **Swift class with protocol**
 
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 4.836922 ms  | 1.101002625 ms  |
-| Diff | 0.000020 ms  | 0.00010679999999996248 ms  |
-| Max | 0.005823 ms  | 0.002579834 ms  |
-| Min | 0.004581 ms  | 0.001054959 ms  |
-| Avg | 0.004837 ms  | 0.001100895825 ms  |
-| Median | 0.004745 ms  | 0.001070333 ms  |
+| Total time      | 4836.922 ms  | 1101.002625 ms  |
+| Diff | 0.020 ms  | 0.10679999999996248 ms  |
+| Max | 5.823 ms  | 2.579834 ms  |
+| Min | 4.581 ms  | 1.054959 ms  |
+| Avg | 4.837 ms  | 1.100895825 ms  |
+| Median | 4.745 ms  | 1.070333 ms  |
     
 **Swift struct with protocol**
 
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 4.396088 ms  | 1.099298875 ms  |
-| Diff | 0.000019 ms  | 9.320999999995472e-05 ms  |
-| Max | 0.009111 ms  | 0.002227125 ms  |
-| Min | 0.004070 ms  | 0.001053708 ms  |
-| Avg | 0.004396 ms  | 0.001099205665 ms  |
-| Median | 0.004292 ms  | 0.001069541 ms  |
+| Total time      | 4396.088 ms  | 1099.298875 ms  |
+| Diff | 0.019 ms  | 0.09321 ms  |
+| Max | 9.111 ms  | 2.227125 ms  |
+| Min | 4.070 ms  | 1.053708 ms  |
+| Avg | 4.396 ms  | 1.099205665 ms  |
+| Median | 4.292 ms  | 1.069541 ms  |
     
 **Swift struct with reference**
 
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 1.409525 ms  | 1.141987792 ms  |
-| Diff | 0.000020 ms  | 0.00010745099999986962 ms  |
-| Max | 0.002949 ms  | 0.001797292 ms  |
-| Min | 0.001322 ms  | 0.001087666 ms  |
-| Avg | 0.001410 ms  | 0.001141880341 ms  |
-| Median | 0.001378 ms  | 0.001110375 ms  |
+| Total time      | 1409.525 ms  | 1141.987792 ms  |
+| Diff | 0.020 ms  | 0.10745099999986962 ms  |
+| Max | 2.949 ms  | 1.797292 ms  |
+| Min | 1.322 ms  | 1.087666 ms  |
+| Avg | 1.410 ms  | 1.141880341 ms  |
+| Median | 1.378 ms  | 1.110375 ms  |
     
 ==============================================================\
 Circular Deque\
@@ -68,12 +68,12 @@ Circular Deque\
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 2.674732 ms  | 2.516287167 ms  |
-| Diff | 0.000013 ms  | 0.00014711300000014305 ms  |
-| Max | 0.006216 ms  | 0.005042 ms  |
-| Min | 0.002557 ms  | 0.002461667 ms  |
-| Avg | 0.002675 ms  | 0.002516140054 ms  |
-| Median | 0.002589 ms  | 0.002495042 ms  |
+| Total time      | 2674.732 ms  | 2516.287167 ms  |
+| Diff | 0.013 ms  | 0.14711300000014305 ms  |
+| Max | 6.216 ms  | 5.042 ms  |
+| Min | 2.557 ms  | 2.461667 ms  |
+| Avg | 2.675 ms  | 2.516140054 ms  |
+| Median | 2.589 ms  | 2.495042 ms  |
     
 ==============================================================\
 Count Square Submatrices with All Ones: https://leetcode.com/problems/count-square-submatrices-with-all-ones/description/?envType=daily-question&envId=2024-10-27\
@@ -83,24 +83,24 @@ Count Square Submatrices with All Ones: https://leetcode.com/problems/count-squa
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 0.822334 ms  | 0.671296084 ms  |
-| Diff | 0.000021 ms  | 8.995199999994874e-05 ms  |
-| Max | 0.001051 ms  | 0.001163 ms  |
-| Min | 0.000792 ms  | 0.000646375 ms  |
-| Avg | 0.000822 ms  | 0.0006712061319999999 ms  |
-| Median | 0.000809 ms  | 0.000650666 ms  |
+| Total time      | 822.334 ms  | 671.296084 ms  |
+| Diff | 0.021 ms  | 0.08995199 ms  |
+| Max | 1.051 ms  | 1.163 ms  |
+| Min | 0.792 ms  | 0.646375 ms  |
+| Avg | 0.822 ms  | 0.6712061319999999 ms  |
+| Median | 0.809 ms  | 0.650666 ms  |
     
 **Sum rows**
 
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 5.934775 ms  | 8.869571542 ms  |
-| Diff | 0.000006 ms  | 9.076299999932758e-05 ms  |
-| Max | 0.006500 ms  | 0.014248958 ms  |
-| Min | 0.005835 ms  | 0.008755417 ms  |
-| Avg | 0.005935 ms  | 0.008869480778999999 ms  |
-| Median | 0.005866 ms  | 0.008780583 ms  |
+| Total time      | 5934.775 ms  | 8869.571542 ms  |
+| Diff | 0.006 ms  | 0.09076299 ms  |
+| Max | 6.500 ms  | 14.248958 ms  |
+| Min | 5.835 ms  | 8.755417 ms  |
+| Avg | 5.935 ms  | 8.869480778999999 ms  |
+| Median | 5.866 ms  | 8.780583 ms  |
     
 ==============================================================\
 Divide Intervals Into Minimum Number of Groups: https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/description/?envType=daily-question&envId=2024-10-12\
@@ -110,36 +110,36 @@ Divide Intervals Into Minimum Number of Groups: https://leetcode.com/problems/di
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 7.823934 ms  | 3.128860209 ms  |
-| Diff | 0.000011 ms  | 4.762599999974526e-05 ms  |
-| Max | 0.008803 ms  | 0.0061715 ms  |
-| Min | 0.007496 ms  | 0.002974792 ms  |
-| Avg | 0.007824 ms  | 0.003128812583 ms  |
-| Median | 0.007736 ms  | 0.003106708 ms  |
+| Total time      | 7823.934 ms  | 3128.860209 ms  |
+| Diff | 0.011 ms  | 0.04762599 ms  |
+| Max | 8.803 ms  | 6.1715 ms  |
+| Min | 7.496 ms  | 2.974792 ms  |
+| Avg | 7.824 ms  | 3.128812583 ms  |
+| Median | 7.736 ms  | 3.106708 ms  |
     
 **Sort borders**
 
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 10.324821 ms  | 8.506603959 ms  |
-| Diff | 0.000009 ms  | 8.824300000043195e-05 ms  |
-| Max | 0.011530 ms  | 0.017376042 ms  |
-| Min | 0.010026 ms  | 0.008330584 ms  |
-| Avg | 0.010325 ms  | 0.008506515716 ms  |
-| Median | 0.010212 ms  | 0.008357375 ms  |
+| Total time      | 10324.821 ms  | 8506.603959 ms  |
+| Diff | 0.009 ms  | 0.088243 ms  |
+| Max | 11.530 ms  | 17.376042 ms  |
+| Min | 10.026 ms  | 8.330584 ms  |
+| Avg | 10.325 ms  | 8.506515716 ms  |
+| Median | 10.212 ms  | 8.357375 ms  |
     
 **Sweep window**
 
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000 | 1000 |
-| Total time      | 1.463426 ms  | 0.637114458 ms  |
-| Diff | 0.000013 ms  | 9.210299999995453e-05 ms  |
-| Max | 0.001970 ms  | 0.001444916 ms  |
-| Min | 0.001402 ms  | 0.000600959 ms  |
-| Avg | 0.001463 ms  | 0.000637022355 ms  |
-| Median | 0.001445 ms  | 0.000611125 ms  |
+| Total time      | 1463.426 ms  | 637.114458 ms  |
+| Diff | 0.013 ms  | 0.092103 ms  |
+| Max | 1.970 ms  | 1.444916 ms  |
+| Min | 1.402 ms  | 0.600959 ms  |
+| Avg | 1.463 ms  | 0.637022355 ms  |
+| Median | 1.445 ms  | 0.611125 ms  |
     
 ==============================================================\
 Maximum Width Ramp: https://leetcode.com/problems/maximum-width-ramp/description/?envType=daily-question&envId=2024-10-10\
@@ -148,12 +148,12 @@ Maximum Width Ramp: https://leetcode.com/problems/maximum-width-ramp/description
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000000 | 1000000 |
-| Total time      | 29.916131 ms  | 30.106990791 ms  |
-| Diff | 0.013356 ms  | 0.08874696500000212 ms  |
-| Max | 0.000163 ms  | 0.000147042 ms  |
-| Min | 0.000028 ms  | 2.8666e-05 ms  |
-| Avg | 0.000030 ms  | 3.0018243826000002e-05 ms  |
-| Median | 0.000030 ms  | 2.9584e-05 ms  |
+| Total time      | 29916.131 ms  | 30106.990791 ms  |
+| Diff | 13.356 ms  | 88.74696500000212 ms  |
+| Max | 0.163 ms  | 0.147042 ms  |
+| Min | 0.028 ms  | 0.028666 ms  |
+| Avg | 0.030 ms  | 0.03001824 ms  |
+| Median | 0.030 ms  | 0.029584 ms  |
     
 ==============================================================\
 Minimum Add to Make Parentheses Valid: https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/?envType=daily-question&envId=2024-10-09\
@@ -162,12 +162,12 @@ Minimum Add to Make Parentheses Valid: https://leetcode.com/problems/minimum-add
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000000 | 1000000 |
-| Total time      | 0.697252 ms  | 1.178733416 ms  |
-| Diff | 0.012396 ms  | 0.08074014000000007 ms  |
-| Max | 0.000038 ms  | 8.7583e-05 ms  |
-| Min | 0.000000 ms  | 9.16e-07 ms  |
-| Avg | 0.000001 ms  | 1.0979932759999999e-06 ms  |
-| Median | 0.000001 ms  | 1.042e-06 ms  |
+| Total time      | 697.252 ms  | 1178.733416 ms  |
+| Diff | 12.396 ms  | 80.74014000000007 ms  |
+| Max | 0.038 ms  | 0.087583 ms  |
+| Min | 0.000 ms  | 0.000916 ms  |
+| Avg | 0.001 ms  | 0.00109799 ms  |
+| Median | 0.001 ms  | 0.001042 ms  |
     
 ==============================================================\
 Minimum Number of Swaps to Make the String Balanced https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/description/?envType=daily-question&envId=2024-10-08\
@@ -176,12 +176,12 @@ Minimum Number of Swaps to Make the String Balanced https://leetcode.com/problem
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 1000000 | 1000000 |
-| Total time      | 5.078525 ms  | 9.490925917 ms  |
-| Diff | 0.013648 ms  | 0.08198282600000084 ms  |
-| Max | 0.001118 ms  | 0.001912041 ms  |
-| Min | 0.000004 ms  | 9.166e-06 ms  |
-| Avg | 0.000005 ms  | 9.408943090999999e-06 ms  |
-| Median | 0.000005 ms  | 9.25e-06 ms  |
+| Total time      | 5078.525 ms  | 9490.925917 ms  |
+| Diff | 13.648 ms  | 81.98282600000084 ms  |
+| Max | 1.118 ms  | 1.912041 ms  |
+| Min | 0.004 ms  | 0.009166 ms  |
+| Avg | 0.005 ms  | 0.00940894 ms  |
+| Median | 0.005 ms  | 0.00925 ms  |
     
 ==============================================================\
 The Number of the Smallest Unoccupied Chair: https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/description/?envType=daily-question&envId=2024-10-11\
@@ -190,10 +190,10 @@ The Number of the Smallest Unoccupied Chair: https://leetcode.com/problems/the-n
 | Field name | Swift | Rust |
 | ------------- | ------------- | ------------- |
 | Measures count      | 100000 | 100000 |
-| Total time      | 147.545247 ms  | 135.366622292 ms  |
-| Diff | 0.000803 ms  | 0.007996530999974993 ms  |
-| Max | 0.002133 ms  | 0.002784542 ms  |
-| Min | 0.001453 ms  | 0.001320959 ms  |
-| Avg | 0.001475 ms  | 0.00135358625761 ms  |
-| Median | 0.001463 ms  | 0.001337167 ms  |
+| Total time      | 147545.247 ms  | 135366.622292 ms  |
+| Diff | 0.803 ms  | 7.996530999974993 ms  |
+| Max | 2.133 ms  | 2.784542 ms  |
+| Min | 1.453 ms  | 1.320959 ms  |
+| Avg | 1.475 ms  | 1.35358625761 ms  |
+| Median | 1.463 ms  | 1.337167 ms  |
     
