@@ -65,7 +65,7 @@ pub fn measure(name: &str, subname: Option<&str>, measures_count: i32, run: impl
 
     println!("{}", name);
     
-    let to_ms_divider = 1_000_000_000.0;
+    let to_ms_divider = 1_000_000.0;
     let total_time = for_start_time.elapsed().as_nanos() as f64 / to_ms_divider;
     println!("Total time: {}", total_time);
 
