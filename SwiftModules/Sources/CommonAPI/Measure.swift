@@ -33,30 +33,31 @@ public func measure(name: String,
         "measures_count": measuresCount
     ]
 
-    let totalTime = Double(forEnd - forStart) / 1_000_000
+    let toMSDivider = 1000.0
+    let totalTime = Double(forEnd - forStart) / toMSDivider
     let totalTimeStr = toString(double: totalTime)
     print("Total time \(totalTimeStr)")
     results["total_time"] = totalTimeStr
 
-    let totalMeasuresTime = Double(durations.reduce(into: 0) { $0 += $1 }) / 1_000_000
+    let totalMeasuresTime = Double(durations.reduce(into: 0) { $0 += $1 }) / toMSDivider
     let diffStr = toString(double: totalTime - totalMeasuresTime)
     print("Diff: \(diffStr)")
     results["diff"] = diffStr
 
-    let maxStr = toString(double: Double((durations.max { $0 < $1 })!) / 1_000_000)
+    let maxStr = toString(double: Double((durations.max { $0 < $1 })!) / toMSDivider)
     print("Max: \(maxStr)")
     results["max"] = maxStr
 
-    let minStr = toString(double: Double((durations.min { $0 < $1 })!) / 1_000_000)
+    let minStr = toString(double: Double((durations.min { $0 < $1 })!) / toMSDivider)
     print("Min: \(minStr)")
     results["min"] = minStr
 
     let average = Double(durations.reduce(into: 0, { $0 += $1 })) / Double(durations.count)
-    let averageStr = toString(double: average / 1_000_000)
+    let averageStr = toString(double: average / toMSDivider)
     print("Avg: \(averageStr)")
     results["average"] = averageStr
 
-    let medianStr = toString(double: Double(durations[durations.count / 2]) / 1_000_000)
+    let medianStr = toString(double: Double(durations[durations.count / 2]) / toMSDivider)
     print("Median: \(medianStr)")
     results["median"] = medianStr
 
